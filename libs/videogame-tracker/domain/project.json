@@ -1,0 +1,41 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/videogame-tracker/domain/src",
+  "prefix": "videogame-tracker",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/videogame-tracker/domain"],
+      "options": {
+        "project": "libs/videogame-tracker/domain/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/videogame-tracker/domain/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/videogame-tracker/domain/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/videogame-tracker/domain"],
+      "options": {
+        "jestConfig": "libs/videogame-tracker/domain/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/videogame-tracker/domain/**/*.ts",
+          "libs/videogame-tracker/domain/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:videogame-tracker", "type:domain-logic"]
+}
