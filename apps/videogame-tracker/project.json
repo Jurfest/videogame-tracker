@@ -17,7 +17,10 @@
           "apps/videogame-tracker/src/favicon.ico",
           "apps/videogame-tracker/src/assets"
         ],
-        "styles": ["apps/videogame-tracker/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/videogame-tracker/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
