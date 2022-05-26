@@ -1,9 +1,10 @@
-import * as fromGame from './+state/game/game.reducer';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GameEffects } from './+state/game/game.effects';
-import { StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
+import { GameEffects } from './+state/game/game.effects';
+import * as fromGame from './+state/game/game.reducer';
 
 @NgModule({
   imports: [

@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
 import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
 
 import { GamesComponent } from './games.component';
@@ -30,6 +31,7 @@ import { GamesComponent } from './games.component';
     MatMenuModule,
     MatTableModule,
     MatSelectModule,
+    SharedUiComponentsModule,
   ],
   declarations: [GamesComponent],
   exports: [GamesComponent],
