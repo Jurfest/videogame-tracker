@@ -10,6 +10,13 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@angular-architects/ddd@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular-architects/ddd/-/ddd-2.0.0.tgz#81bba015c105ff56d316ae31178c64031aa6b700"
+  integrity sha512-fVRKnXU9tkGV4jKcZw9KZJ8NUYcG+SvN0wTINNEC1eJgnRu8q5HLHtfWLWmLiU6m29gbEaFwgzqIKRoJqimWVA==
+  dependencies:
+    "@ngrx/schematics" "^13.0.0"
+
 "@angular-devkit/architect@0.1303.7":
   version "0.1303.7"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1303.7.tgz#9782370d3c91ebc1876a14cacf87b23b3fc38de4"
@@ -1583,6 +1590,11 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@ngrx/schematics@^13.0.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-13.2.0.tgz#c2edba689b8e134877cb1db2f8bde974ea095c8c"
+  integrity sha512-MpSJFWF+Pppwv2C+0NNw8RPZmgbhaiEMCiF8VUkAJkXki9CV9Da6cTOa+v1nIrrfUpm/L+jD8DL9CPJTPccRZg==
 
 "@ngtools/webpack@13.3.7":
   version "13.3.7"
