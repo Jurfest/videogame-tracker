@@ -1,13 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule, BrowserAnimationsModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(APP_ROUTES, {
+      preloadingStrategy: PreloadAllModules,
+      errorHandler: (err) => {
+        console.log('Router error: ', err);
+      },
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
