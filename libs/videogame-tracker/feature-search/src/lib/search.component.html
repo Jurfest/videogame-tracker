@@ -1,5 +1,16 @@
 <h1>videogame-tracker-search</h1>
 
+<form [formGroup]="searchGamesForm">
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input formControlName="search" matInput placeholder="Search for title or completion date" />
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      <!-- <mat-hint>Hint</mat-hint> -->
+    </mat-form-field>
+  </p>
+</form>
+
 <div *ngIf="gameList$ | async as gameList">
   <components-card-list
     [cards]="gameList"

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Game, SearchFacade } from '@videogame-tracker/videogame-tracker/domain';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  Game,
+  SearchFacade,
+} from '@videogame-tracker/videogame-tracker/domain';
+import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs';
 
 @Component({
   selector: 'videogame-tracker-search',
@@ -9,17 +14,38 @@ import { Game, SearchFacade } from '@videogame-tracker/videogame-tracker/domain'
 export class SearchComponent implements OnInit {
   gameList$ = this.searchFacade.gameList$;
 
-  constructor(private searchFacade: SearchFacade) {}
+  searchGamesForm: FormGroup;
 
-  ngOnInit() {
-    this.load();
+  loading: boolean | undefined;
+
+  constructor(private searchFacade: SearchFacade, private fb: FormBuilder) {
+    this.searchGamesForm = this.fb.group({
+      search: ['', Validators.required],
+    });
   }
 
-  load(): void {
+  ngOnInit() {
+    this.loadAllGames();
+
+    const debounceSearchInput$ =
+      this.searchGamesForm.controls['search'].valueChanges.pipe(
+        filter((criteria) => criteria.length >= 2),
+        debounceTime(300)
+      );
+
+    debounceSearchInput$.pipe(
+      distinctUntilChanged(),
+      tap(() => (this.loading = true)),
+      map((input) => this.searchGames(input)),
+      tap(() => (this.loading = false))
+    ).subscribe();
+  }
+
+  loadAllGames(): void {
     this.searchFacade.load();
   }
 
-  search(title: string): void {
+  private searchGames(title: string): void {
     this.searchFacade.search(title);
   }
 

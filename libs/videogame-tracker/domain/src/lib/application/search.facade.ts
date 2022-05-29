@@ -18,7 +18,6 @@ export class SearchFacade {
   }
 
   search(title: string): void {
-    console.log(title);
-    //
+    console.log('search', title);
   }
 }

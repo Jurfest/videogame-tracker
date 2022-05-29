@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-component
     MatTableModule,
     MatSelectModule,
     SharedUiComponentsModule,
+    ReactiveFormsModule
   ],
   declarations: [SearchComponent],
   exports: [SearchComponent],
