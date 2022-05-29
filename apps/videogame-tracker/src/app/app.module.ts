@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { VideogameTrackerFeatureGamesModule } from '@videogame-tracker/videogame-tracker/feature-games';
+import { VideogameTrackerFeatureSearchModule } from '@videogame-tracker/videogame-tracker/feature-search';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -22,7 +22,7 @@ import { APP_ROUTES } from './app.routes';
     RouterModule.forRoot(APP_ROUTES),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot(),
-    VideogameTrackerFeatureGamesModule,
+    VideogameTrackerFeatureSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

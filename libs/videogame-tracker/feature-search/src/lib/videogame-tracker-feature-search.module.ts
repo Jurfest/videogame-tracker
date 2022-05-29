@@ -1,5 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
+import { SearchComponent } from './search.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,9 +14,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
-import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
-
-import { GamesComponent } from './games.component';
 
 @NgModule({
   imports: [
@@ -33,7 +32,7 @@ import { GamesComponent } from './games.component';
     MatSelectModule,
     SharedUiComponentsModule,
   ],
-  declarations: [GamesComponent],
-  exports: [GamesComponent],
+  declarations: [SearchComponent],
+  exports: [SearchComponent],
 })
-export class VideogameTrackerFeatureGamesModule {}
+export class VideogameTrackerFeatureSearchModule {}

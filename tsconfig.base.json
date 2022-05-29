@@ -21,8 +21,8 @@
       "@videogame-tracker/videogame-tracker/domain": [
         "libs/videogame-tracker/domain/src/index.ts"
       ],
-      "@videogame-tracker/videogame-tracker/feature-games": [
-        "libs/videogame-tracker/feature-games/src/index.ts"
+      "@videogame-tracker/videogame-tracker/feature-search": [
+        "libs/videogame-tracker/feature-search/src/index.ts"
       ]
     }
   },

@@ -1,29 +1,29 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/videogame-tracker/feature-games/src",
+  "sourceRoot": "libs/videogame-tracker/feature-search/src",
   "prefix": "videogame-tracker",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/videogame-tracker/feature-games"],
+      "outputs": ["dist/libs/videogame-tracker/feature-search"],
       "options": {
-        "project": "libs/videogame-tracker/feature-games/ng-package.json"
+        "project": "libs/videogame-tracker/feature-search/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/videogame-tracker/feature-games/tsconfig.lib.prod.json"
+          "tsConfig": "libs/videogame-tracker/feature-search/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/videogame-tracker/feature-games/tsconfig.lib.json"
+          "tsConfig": "libs/videogame-tracker/feature-search/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/videogame-tracker/feature-games"],
+      "outputs": ["coverage/libs/videogame-tracker/feature-search"],
       "options": {
-        "jestConfig": "libs/videogame-tracker/feature-games/jest.config.ts",
+        "jestConfig": "libs/videogame-tracker/feature-search/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -31,8 +31,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/videogame-tracker/feature-games/**/*.ts",
-          "libs/videogame-tracker/feature-games/**/*.html"
+          "libs/videogame-tracker/feature-search/**/*.ts",
+          "libs/videogame-tracker/feature-search/**/*.html"
         ]
       }
     }

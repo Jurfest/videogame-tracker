@@ -8,6 +8,6 @@
     "videogame-tracker": "apps/videogame-tracker",
     "videogame-tracker-domain": "libs/videogame-tracker/domain",
     "videogame-tracker-e2e": "apps/videogame-tracker-e2e",
-    "videogame-tracker-feature-games": "libs/videogame-tracker/feature-games"
+    "videogame-tracker-feature-search": "libs/videogame-tracker/feature-search"
   }
 }

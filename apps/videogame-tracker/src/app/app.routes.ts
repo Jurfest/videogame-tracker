@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { GamesComponent } from '@videogame-tracker/videogame-tracker/feature-games';
+import { SearchComponent } from '@videogame-tracker/videogame-tracker/feature-search';
 
 export const APP_ROUTES: Routes = [
   {
@@ -9,6 +9,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'videogames',
-    component: GamesComponent,
+    component: SearchComponent,
   },
 ];

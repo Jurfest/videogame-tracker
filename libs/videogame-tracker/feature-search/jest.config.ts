@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'videogame-tracker-feature-games',
+  displayName: 'videogame-tracker-feature-search',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/videogame-tracker/feature-games',
+  coverageDirectory: '../../../coverage/libs/videogame-tracker/feature-search',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
