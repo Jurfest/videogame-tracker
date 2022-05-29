@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GamesFacade } from '@videogame-tracker/videogame-tracker/domain';
+import { Game, GamesFacade } from '@videogame-tracker/videogame-tracker/domain';
 
 @Component({
   selector: 'videogame-tracker-games',
@@ -17,5 +17,9 @@ export class GamesComponent implements OnInit {
 
   load(): void {
     this.gamesFacade.load();
+  }
+
+  onCardChange(cards: Game[]) {
+    console.log(cards);
   }
 }

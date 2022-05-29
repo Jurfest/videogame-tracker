@@ -47,6 +47,36 @@ export class GameDataService {
         personalNotes:
           'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
       },
+      {
+        id: 4,
+        title: 'Lorem ipsum',
+        year: 'Lorem ipsum dolor sit amet',
+        console: 'Sed ut perspiciatis',
+        completed: true,
+        dateOfCompletion: 'Quis autem vel',
+        personalNotes:
+          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
+      },
+      {
+        id: 5,
+        title: 'At vero eos',
+        year: 'At vero eos et accusam et justo duo dolores',
+        console: 'Sed ut perspiciatis',
+        completed: true,
+        dateOfCompletion: 'Quis autem vel',
+        personalNotes:
+          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
+      },
+      {
+        id: 6,
+        title: 'Duis autem',
+        year: 'Duis autem vel eum iriure dolor in hendrerit',
+        console: 'Sed ut perspiciatis',
+        completed: true,
+        dateOfCompletion: 'Quis autem vel',
+        personalNotes:
+          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
+      },
     ]);
   }
 }

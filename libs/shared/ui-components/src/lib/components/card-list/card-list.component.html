@@ -1,5 +1,9 @@
-<div>
-  <mat-card class="card" *ngFor="let card of cards">
+<div
+  cdkDropListOrientation="horizontal"
+  cdkDropList
+  (cdkDropListDropped)="sortCards($event)"
+>
+  <mat-card cdkDrag class="card" *ngFor="let card of cards; let i = index">
     <mat-card-title>{{ card?.title }}</mat-card-title>
     <mat-card-subtitle>{{ card?.year }}</mat-card-subtitle>
     <mat-card-content>

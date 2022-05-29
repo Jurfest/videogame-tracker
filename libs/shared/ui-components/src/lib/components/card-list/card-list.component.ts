@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Card } from '../../models/card';
 
@@ -8,5 +9,11 @@ import { Card } from '../../models/card';
   styleUrls: ['./card-list.component.scss'],
 })
 export class CardListComponent {
-  @Input() cards: Card[] | null = [];
+  @Input() cards: Card[] = [];
+  @Output() cardChange = new EventEmitter<Card[]>();
+
+  sortCards(event: CdkDragDrop<string[]>): void {
+    moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
+    this.cardChange.emit(this.cards);
+  }
 }
