@@ -5,6 +5,4 @@ export * from './lib/infrastructure/game.data.service';
 
 export * from './lib/+state/game/game.actions';
 
-export * from './lib/application/games.facade';
-
 export * from './lib/application/search.facade';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Game, GamesFacade } from '@videogame-tracker/videogame-tracker/domain';
+import { Game, SearchFacade } from '@videogame-tracker/videogame-tracker/domain';
 
 @Component({
   selector: 'videogame-tracker-search',
@@ -7,16 +7,20 @@ import { Game, GamesFacade } from '@videogame-tracker/videogame-tracker/domain';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  gameList$ = this.gamesFacade.gameList$;
+  gameList$ = this.searchFacade.gameList$;
 
-  constructor(private gamesFacade: GamesFacade) {}
+  constructor(private searchFacade: SearchFacade) {}
 
   ngOnInit() {
     this.load();
   }
 
   load(): void {
-    this.gamesFacade.load();
+    this.searchFacade.load();
+  }
+
+  search(title: string): void {
+    this.searchFacade.search(title);
   }
 
   onCardChange(cards: Game[]) {
