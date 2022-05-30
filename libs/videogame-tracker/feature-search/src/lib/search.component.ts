@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private searchFacade: SearchFacade, private fb: FormBuilder) {
     this.searchGamesForm = this.fb.group({
-      search: ['', Validators.required],
+      search: [''],
     });
   }
 
