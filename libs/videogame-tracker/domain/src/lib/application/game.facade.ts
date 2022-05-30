@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
-import { loadGame } from '../+state/game/game.actions';
+import { createGame, loadGame } from '../+state/game/game.actions';
 import * as fromGame from '../+state/game/game.reducer';
 import * as GameSelectors from '../+state/game/game.selectors';
+import { Game } from '../entities/game';
 
 @Injectable({ providedIn: 'root' })
 export class GameFacade {
@@ -19,5 +20,9 @@ export class GameFacade {
 
   search(title: string): void {
     console.log('search', title);
+  }
+
+  create(game: Game): void {
+    this.store.dispatch(createGame({ game }));
   }
 }

@@ -33,7 +33,16 @@ const gameReducer = createReducer(
   on(GameActions.loadGameSuccess, (state, { game }) =>
     gameAdapter.upsertMany(game, { ...state, loaded: true })
   ),
-  on(GameActions.loadGameFailure, (state, { error }) => ({ ...state, error }))
+  on(GameActions.loadGameFailure, (state, { error }) => ({ ...state, error })),
+  on(GameActions.createGame, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+  on(GameActions.createGameSuccess, (state, { game }) =>
+    gameAdapter.addOne(game, { ...state, loaded: true })
+  ),
+  on(GameActions.createGameFailure, (state, { error }) => ({ ...state, error }))
 );
 
 export function reducer(state: State | undefined, action: Action) {

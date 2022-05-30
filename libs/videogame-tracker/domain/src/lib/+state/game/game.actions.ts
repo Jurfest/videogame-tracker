@@ -13,3 +13,18 @@ export const loadGameFailure = createAction(
   '[Game/API] Load Game Failure',
   props<{ error: any }>()
 );
+
+export const createGame = createAction(
+  '[Game Page] Create Game',
+  props<{ game: Game }>()
+);
+
+export const createGameSuccess = createAction(
+  '[Game/API] Create Game Success',
+  props<{ game: Game }>()
+);
+
+export const createGameFailure = createAction(
+  '[Game/API] Create Game Failure',
+  props<{ error: any }>()
+);
