@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+
 import { Game } from '../entities/game';
 
 @Injectable({ providedIn: 'root' })
 export class GameDataService {
+  baseUrl = 'http://localhost:3001/games';
+
   constructor(private http: HttpClient) {}
 
   load(): Observable<Game[]> {
@@ -13,8 +16,8 @@ export class GameDataService {
         const url = '...';
         const params = new HttpParams().set('param', 'value');
         const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http.get<Game[]>(url, {params, headers});
         */
+    return this.http.get<Game[]>(this.baseUrl);
 
     return of([
       {
