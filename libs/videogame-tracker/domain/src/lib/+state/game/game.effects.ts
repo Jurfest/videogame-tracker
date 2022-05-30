@@ -11,7 +11,7 @@ export class GameEffects {
   loadGame$ = createEffect(() =>
     this.actions$.pipe(
       ofType(GameActions.loadGame),
-      switchMap((action) =>
+      switchMap(() =>
         this.gameDataService.load().pipe(
           map((game) => GameActions.loadGameSuccess({ game })),
           catchError((error) => of(GameActions.loadGameFailure({ error })))
@@ -25,8 +25,3 @@ export class GameEffects {
     private gameDataService: GameDataService
   ) {}
 }
-
-
-
-
-

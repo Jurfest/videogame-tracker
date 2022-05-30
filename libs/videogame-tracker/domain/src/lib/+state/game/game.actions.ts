@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
+
 import { Game } from '../../entities/game';
-// import { GameEntity } from './game.models';
 
 export const loadGame = createAction('[Game Page] Load Game');
 
