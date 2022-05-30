@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  Game,
-  SearchFacade,
-} from '@videogame-tracker/videogame-tracker/domain';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
 import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs';
 
 @Component({
@@ -12,13 +9,13 @@ import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  gameList$ = this.searchFacade.gameList$;
+  gameList$ = this.gameFacade.gameList$;
 
   searchGamesForm: FormGroup;
 
   loading: boolean | undefined;
 
-  constructor(private searchFacade: SearchFacade, private fb: FormBuilder) {
+  constructor(private gameFacade: GameFacade, private fb: FormBuilder) {
     this.searchGamesForm = this.fb.group({
       search: [''],
     });
@@ -27,26 +24,29 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.loadAllGames();
 
-    const debounceSearchInput$ =
-      this.searchGamesForm.controls['search'].valueChanges.pipe(
-        filter((criteria) => criteria.length >= 2),
-        debounceTime(300)
-      );
+    const debounceSearchInput$ = this.searchGamesForm.controls[
+      'search'
+    ].valueChanges.pipe(
+      filter((criteria) => criteria.length >= 2),
+      debounceTime(300)
+    );
 
-    debounceSearchInput$.pipe(
-      distinctUntilChanged(),
-      tap(() => (this.loading = true)),
-      map((input) => this.searchGames(input)),
-      tap(() => (this.loading = false))
-    ).subscribe();
+    debounceSearchInput$
+      .pipe(
+        distinctUntilChanged(),
+        tap(() => (this.loading = true)),
+        map((input) => this.searchGames(input)),
+        tap(() => (this.loading = false))
+      )
+      .subscribe();
   }
 
   loadAllGames(): void {
-    this.searchFacade.load();
+    this.gameFacade.load();
   }
 
   private searchGames(title: string): void {
-    this.searchFacade.search(title);
+    this.gameFacade.search(title);
   }
 
   onCardChange(cards: Game[]) {
