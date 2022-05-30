@@ -27,32 +27,41 @@
       "dateOfCompletion": "23/04/2019",
       "personalNotes": "As always, Raiden is the best character."
     },
-     {
-       "id": 4,
-       "title": "Animal Crossing: New Horizons",
-       "year": "2020",
-       "console": "NINTENDO SWITCH",
-       "completed": true,
-       "dateOfCompletion": "20/05/2020",
-       "personalNotes": "BAFTA Video Games Award: Best Multiplayer. Really nice."
-     },
-     {
-       "id": 5,
-       "title": "Horizon Forbidden West",
-       "year": "2022",
-       "console": "PS5",
-       "completed": true,
-       "dateOfCompletion": "18/02/2022",
-       "personalNotes": "A true adventure."
-     },
-      {
-        "id": 5,
-        "title": "FORZA HORIZON 5",
-        "year": "2021",
-        "console": "XBOX SERIES X",
-        "completed": true,
-        "dateOfCompletion": "04/11/2021",
-        "personalNotes": "I really liked this game. Kojima really nailed here."
-      }
+    {
+      "id": 4,
+      "title": "Animal Crossing: New Horizons",
+      "year": "2020",
+      "console": "NINTENDO SWITCH",
+      "completed": true,
+      "dateOfCompletion": "20/05/2020",
+      "personalNotes": "BAFTA Video Games Award: Best Multiplayer. Really nice."
+    },
+    {
+      "id": 5,
+      "title": "Horizon Forbidden West",
+      "year": "2022",
+      "console": "PS5",
+      "completed": true,
+      "dateOfCompletion": "18/02/2022",
+      "personalNotes": "A true adventure."
+    },
+    {
+      "id": 5,
+      "title": "FORZA HORIZON 5",
+      "year": "2021",
+      "console": "XBOX SERIES X",
+      "completed": true,
+      "dateOfCompletion": "04/11/2021",
+      "personalNotes": "I really liked this game. Kojima really nailed here."
+    },
+    {
+      "title": "Lemmings",
+      "year": "2023",
+      "console": "Sega Genesis",
+      "completed": true,
+      "dateOfCompletion": "18/11/2023",
+      "personalNotes": "Cool",
+      "id": 6
+    }
   ]
 }

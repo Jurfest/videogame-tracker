@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperOrientation } from '@angular/material/stepper';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'videogame-tracker-manage',
@@ -8,24 +12,50 @@ import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
   styleUrls: ['./manage.component.scss'],
 })
 export class ManageComponent implements OnInit {
-  gameForm: FormGroup;
+  gameTitleForm = this.fb.group({
+    title: ['', Validators.required],
+  });
+  gameYearForm = this.fb.group({
+    year: ['', Validators.required],
+  });
+  gameConsoleForm = this.fb.group({
+    console: ['', Validators.required],
+  });
+  gameCompletedForm = this.fb.group({
+    completed: ['', Validators.required],
+  });
+  gameDateOfCompletionForm = this.fb.group({
+    dateOfCompletion: ['', Validators.required],
+  });
+  gamePersonalNotesForm = this.fb.group({
+    personalNotes: ['', Validators.required],
+  });
+  stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private gameFacade: GameFacade, private fb: FormBuilder) {
-    this.gameForm = this.fb.group({
-      title: ['', Validators.required],
-      year: ['', Validators.required],
-      console: ['', Validators.required],
-      completed: [null, Validators.required],
-      dateOfCompletion: ['', Validators.required],
-      personalNotes: ['', Validators.required],
-    });
+  constructor(
+    private gameFacade: GameFacade,
+    private fb: FormBuilder,
+    breakpointObserver: BreakpointObserver
+  ) {
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
 
   ngOnInit(): void {
     console.log('manage component');
   }
 
-  create(game: Game): void {
-    this.gameFacade.create(game);
+  addNewGame(): void {
+    const payload: Game = {
+      title: this.gameTitleForm.controls['title'].value,
+      year: this.gameYearForm.controls['year'].value,
+      console: this.gameConsoleForm.controls['console'].value,
+      completed: true, //this.gameCompletedForm.controls['completed'].value,
+      dateOfCompletion:
+        this.gameDateOfCompletionForm.controls['dateOfCompletion'].value,
+      personalNotes: this.gamePersonalNotesForm.controls['personalNotes'].value,
+    };
+    this.gameFacade.create(payload);
   }
 }
