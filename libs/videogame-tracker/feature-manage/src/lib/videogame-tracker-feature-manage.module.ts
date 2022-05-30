@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { ManageComponent } from './manage.component';
 
@@ -38,6 +39,7 @@ import { ManageComponent } from './manage.component';
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatRadioModule,
   ],
   declarations: [ManageComponent],
   exports: [ManageComponent],

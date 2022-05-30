@@ -1,4 +1,12 @@
-.table td {
-  border: 1px solid;
-  padding: 10px;
+mat-radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+mat-radio-button {
+  ~ mat-radio-button {
+    margin-left: 1rem;
+  }
 }

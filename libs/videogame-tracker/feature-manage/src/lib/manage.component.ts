@@ -78,7 +78,7 @@ export class ManageComponent implements OnInit {
       title: this.gameTitleForm.controls['title'].value,
       year: this.gameYearForm.controls['year'].value,
       console: this.gameConsoleForm.controls['console'].value,
-      completed: true, //this.gameCompletedForm.controls['completed'].value,
+      completed: this.gameCompletedForm.controls['completed'].value,
       dateOfCompletion: this.formatDate(
         this.gameDateOfCompletionForm.controls['dateOfCompletion'].value
       ),
