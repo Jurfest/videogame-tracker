@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Game } from '../entities/game';
 
+const baseUrl = 'http://localhost:3001/games';
+
 @Injectable({ providedIn: 'root' })
 export class GameDataService {
-  baseUrl = 'http://localhost:3001/games';
-
   constructor(private http: HttpClient) {}
 
   load(): Observable<Game[]> {
@@ -17,69 +17,6 @@ export class GameDataService {
         const params = new HttpParams().set('param', 'value');
         const headers = new HttpHeaders().set('Accept', 'application/json');
         */
-    return this.http.get<Game[]>(this.baseUrl);
-
-    return of([
-      {
-        id: 1,
-        title: 'Lorem ipsum',
-        year: 'Lorem ipsum dolor sit amet',
-        console: 'Sed ut perspiciatis',
-        completed: true,
-        dateOfCompletion: 'Quis autem vel',
-        personalNotes:
-          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
-      },
-      {
-        id: 2,
-        title: 'At vero eos',
-        year: 'At vero eos et accusam et justo duo dolores',
-        console: 'Sed ut perspiciatis',
-        completed: true,
-        dateOfCompletion: 'Quis autem vel',
-        personalNotes:
-          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
-      },
-      {
-        id: 3,
-        title: 'Duis autem',
-        year: 'Duis autem vel eum iriure dolor in hendrerit',
-        console: 'Sed ut perspiciatis',
-        completed: true,
-        dateOfCompletion: 'Quis autem vel',
-        personalNotes:
-          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
-      },
-      {
-        id: 4,
-        title: 'Lorem ipsum',
-        year: 'Lorem ipsum dolor sit amet',
-        console: 'Sed ut perspiciatis',
-        completed: true,
-        dateOfCompletion: 'Quis autem vel',
-        personalNotes:
-          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
-      },
-      {
-        id: 5,
-        title: 'At vero eos',
-        year: 'At vero eos et accusam et justo duo dolores',
-        console: 'Sed ut perspiciatis',
-        completed: true,
-        dateOfCompletion: 'Quis autem vel',
-        personalNotes:
-          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
-      },
-      {
-        id: 6,
-        title: 'Duis autem',
-        year: 'Duis autem vel eum iriure dolor in hendrerit',
-        console: 'Sed ut perspiciatis',
-        completed: true,
-        dateOfCompletion: 'Quis autem vel',
-        personalNotes:
-          'At vero eos et accusamus et iusto odio dignissimos ducimus qui',
-      },
-    ]);
+    return this.http.get<Game[]>(baseUrl);
   }
 }
