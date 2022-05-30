@@ -53,15 +53,32 @@
       "completed": true,
       "dateOfCompletion": "04/11/2021",
       "personalNotes": "I really liked this game. Kojima really nailed here."
+    }
+  ],
+  "consoles": [
+    {
+      "id": 0,
+      "name": "PS2"
     },
     {
-      "title": "Lemmings",
-      "year": "2023",
-      "console": "Sega Genesis",
-      "completed": true,
-      "dateOfCompletion": "18/11/2023",
-      "personalNotes": "Cool",
-      "id": 6
+      "id": 1,
+      "name": "PS4"
+    },
+    {
+      "id": 2,
+      "name": "PS5"
+    },
+    {
+      "id": 3,
+      "name": "XBOX ONE"
+    },
+    {
+      "id": 4,
+      "name": "XBOX SERIES X"
+    },
+    {
+      "id": 5,
+      "name": "NINTENDO SWITCH"
     }
   ]
 }

@@ -1,7 +1,5 @@
 <ng-container>
-  <h1>
-    Add new game
-  </h1>
+  <h1>Add new game</h1>
 </ng-container>
 
 <mat-stepper
@@ -45,12 +43,14 @@
     <form [formGroup]="gameConsoleForm">
       <mat-form-field appearance="fill">
         <mat-label>Console</mat-label>
-        <input
-          matInput
-          formControlName="console"
-          placeholder="Ex. Sega Genesis"
-          required
-        />
+        <mat-select required formControlName="console">
+          <mat-option
+            *ngFor="let console of consoleList$ | async"
+            [value]="console?.name"
+          >
+            {{ console.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>

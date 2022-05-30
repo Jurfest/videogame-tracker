@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
+import {
+  ConsoleFacade,
+  Game,
+  GameFacade,
+} from '@videogame-tracker/videogame-tracker/domain';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
@@ -32,8 +36,11 @@ export class ManageComponent implements OnInit {
   });
   stepperOrientation: Observable<StepperOrientation>;
 
+  consoleList$ = this.consoleFacade.allConsole$;
+
   constructor(
     private gameFacade: GameFacade,
+    private consoleFacade: ConsoleFacade,
     private fb: FormBuilder,
     breakpointObserver: BreakpointObserver
   ) {
@@ -43,7 +50,11 @@ export class ManageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('manage component');
+    this.loadAllConsoles();
+  }
+
+  private loadAllConsoles(): void {
+    this.consoleFacade.loadConsoleList();
   }
 
   addNewGame(): void {
