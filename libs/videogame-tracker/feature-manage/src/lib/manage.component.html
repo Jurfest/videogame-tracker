@@ -35,7 +35,7 @@
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button (click)="setMinDateRange()" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -81,10 +81,16 @@
         <mat-label>Date of completion</mat-label>
         <input
           matInput
-          formControlName="dateOfCompletion"
-          placeholder="Ex. 18/11/2020"
+          [min]="minDate"
+          [max]="maxDate"
+          placeholder="Ex. 11/18/2020"
           required
+          formControlName="dateOfCompletion"
+          [matDatepicker]="picker"
         />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>

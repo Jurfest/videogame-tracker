@@ -9,6 +9,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'videogame-tracker-manage',
@@ -16,6 +17,10 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./manage.component.scss'],
 })
 export class ManageComponent implements OnInit {
+  minDate = new Date();
+  maxDate = new Date();
+
+  // TODO: - Check validators and masks
   gameTitleForm = this.fb.group({
     title: ['', Validators.required],
   });
@@ -57,16 +62,32 @@ export class ManageComponent implements OnInit {
     this.consoleFacade.loadConsoleList();
   }
 
+  // Set the minimum date to January 1st of game release year
+  setMinDateRange(): void {
+    const gameReleaseYear = moment(
+      this.gameYearForm.controls['year'].value
+    ).get('year');
+    this.minDate = new Date(gameReleaseYear - 0, 0, 1);
+
+    // FIXME: - Reverse flux test condition where completion date is invalid
+    // after year change and fix by cleaning invalid completion date
+  }
+
   addNewGame(): void {
     const payload: Game = {
       title: this.gameTitleForm.controls['title'].value,
       year: this.gameYearForm.controls['year'].value,
       console: this.gameConsoleForm.controls['console'].value,
       completed: true, //this.gameCompletedForm.controls['completed'].value,
-      dateOfCompletion:
-        this.gameDateOfCompletionForm.controls['dateOfCompletion'].value,
+      dateOfCompletion: this.formatDate(
+        this.gameDateOfCompletionForm.controls['dateOfCompletion'].value
+      ),
       personalNotes: this.gamePersonalNotesForm.controls['personalNotes'].value,
     };
     this.gameFacade.create(payload);
+  }
+
+  private formatDate(date: Date): string {
+    return moment(date).format('MM/DD/YYYY');
   }
 }
