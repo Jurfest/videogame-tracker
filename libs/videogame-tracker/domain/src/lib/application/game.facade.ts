@@ -6,7 +6,7 @@ import * as fromGame from '../+state/game/game.reducer';
 import * as GameSelectors from '../+state/game/game.selectors';
 
 @Injectable({ providedIn: 'root' })
-export class SearchFacade {
+export class GameFacade {
   loaded$ = this.store.pipe(select(GameSelectors.getGameLoaded));
   gameList$ = this.store.pipe(select(GameSelectors.getAllGame));
   selectedGame$ = this.store.pipe(select(GameSelectors.getSelected));
