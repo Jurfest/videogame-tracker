@@ -1,15 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import {
-  GAME_FEATURE_KEY,
-  State,
-  GamePartialState,
-  gameAdapter,
-} from './game.reducer';
+
+import { GAME_FEATURE_KEY, gameAdapter, State } from './game.reducer';
 
 // Lookup the 'Game' feature state managed by NgRx
-export const getGameState = createFeatureSelector<GamePartialState, State>(
-  GAME_FEATURE_KEY
-);
+export const getGameState = createFeatureSelector<State>(GAME_FEATURE_KEY);
 
 const { selectAll, selectEntities } = gameAdapter.getSelectors();
 

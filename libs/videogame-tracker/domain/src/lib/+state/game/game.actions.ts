@@ -1,14 +1,15 @@
 import { createAction, props } from '@ngrx/store';
 import { Game } from '../../entities/game';
+// import { GameEntity } from './game.models';
 
-export const loadGame = createAction('[Game] Load Game');
+export const loadGame = createAction('[Game Page] Load Game');
 
 export const loadGameSuccess = createAction(
-  '[Game] Load Game Success',
+  '[Game/API] Load Game Success',
   props<{ game: Game[] }>()
 );
 
 export const loadGameFailure = createAction(
-  '[Game] Load Game Failure',
+  '[Game/API] Load Game Failure',
   props<{ error: any }>()
 );

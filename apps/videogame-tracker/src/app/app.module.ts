@@ -18,10 +18,19 @@ import { APP_ROUTES } from './app.routes';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
     RouterModule.forRoot(APP_ROUTES),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreModule.forRoot(
+      {},
+      {
+        metaReducers: !environment.production ? [] : [],
+        runtimeChecks: {
+          strictActionImmutability: true,
+          strictStateImmutability: true,
+        },
+      }
+    ),
     EffectsModule.forRoot(),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
     VideogameTrackerFeatureSearchModule,
   ],
   providers: [],
