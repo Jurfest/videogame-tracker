@@ -22,7 +22,7 @@ export class ManageComponent implements OnInit {
 
   // TODO: - Check validators and masks
   gameTitleForm = this.fb.group({
-    title: ['', Validators.required],
+    title: ['', [Validators.required, Validators.maxLength(50)]],
   });
   gameYearForm = this.fb.group({
     year: ['', Validators.required],
@@ -50,7 +50,7 @@ export class ManageComponent implements OnInit {
     breakpointObserver: BreakpointObserver
   ) {
     this.stepperOrientation = breakpointObserver
-      .observe('(min-width: 800px)')
+      .observe('(min-width: 65.625rem)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
 

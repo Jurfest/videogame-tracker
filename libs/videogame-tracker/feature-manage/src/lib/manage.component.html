@@ -4,6 +4,7 @@
 
 <mat-stepper
   class="example-stepper"
+  linear
   [orientation]="(stepperOrientation | async)!"
 >
   <mat-step [stepControl]="gameTitleForm" label="Title">
@@ -16,6 +17,8 @@
           formControlName="title"
           required
         />
+        <mat-error *ngIf="gameTitleForm.controls['title'].hasError('required')">{{ 'Title is required' }}</mat-error>
+        <mat-error *ngIf="gameTitleForm.controls['title'].hasError('maxlength')">{{ 'Max length is 50 characters' }}</mat-error>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -100,13 +103,13 @@
     <form [formGroup]="gamePersonalNotesForm" class="notes-form">
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Personal notes</mat-label>
-          <textarea
-            matInput
-            formControlName="personalNotes"
-            placeholder="Ex. This game is awesome"
-            required
-          ></textarea>
-        </mat-form-field>
+        <textarea
+          matInput
+          formControlName="personalNotes"
+          placeholder="Ex. This game is awesome"
+          required
+        ></textarea>
+      </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -124,15 +127,15 @@
 
 <!--  -->
 <!-- <mat-stepper #stepper>
-  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-    <form [formGroup]="firstFormGroup">
+  <mat-step [stepControl]="gameTitleForm" errorMessage="Name is required.">
+    <form [formGroup]="gameTitleForm">
       <ng-template matStepLabel>Fill out your name</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input
           matInput
           placeholder="Last name, First name"
-          formControlName="firstCtrl"
+          formControlName="title"
           required
         />
       </mat-form-field>
@@ -142,15 +145,15 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="gameTitleForm" errorMessage="Address is required.">
+    <form [formGroup]="gameTitleForm">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
         <input
           matInput
           placeholder="Ex. 1 Main St, New York, NY"
-          formControlName="secondCtrl"
+          formControlName="title"
           required
         />
       </mat-form-field>
@@ -169,17 +172,17 @@
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
-</mat-stepper>
+</mat-stepper> -->
 
-<mat-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+<!-- <mat-stepper linear #stepper>
+  <mat-step [stepControl]="gameTitleForm">
+    <form [formGroup]="gameTitleForm">
       <ng-template matStepLabel>Fill out your name</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input
           matInput
-          formControlName="firstCtrl"
+          formControlName="title"
           placeholder="Last name, First name"
           required
         />
@@ -189,14 +192,14 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="gameTitleForm">
+    <form [formGroup]="gameTitleForm">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
         <input
           matInput
-          formControlName="secondCtrl"
+          formControlName="title"
           placeholder="Ex. 1 Main St, New York, NY"
           required
         />
