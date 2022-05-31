@@ -97,16 +97,16 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="gamePersonalNotesForm" label="Personal notes">
-    <form [formGroup]="gamePersonalNotesForm">
-      <mat-form-field appearance="fill">
+    <form [formGroup]="gamePersonalNotesForm" class="notes-form">
+      <mat-form-field class="full-width" appearance="fill">
         <mat-label>Personal notes</mat-label>
-        <input
-          matInput
-          formControlName="personalNotes"
-          placeholder="Ex. This game is awesome"
-          required
-        />
-      </mat-form-field>
+          <textarea
+            matInput
+            formControlName="personalNotes"
+            placeholder="Ex. This game is awesome"
+            required
+          ></textarea>
+        </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
