@@ -54,6 +54,7 @@ export class ManageComponent implements OnInit {
   // UI control
   stepperOrientation: Observable<StepperOrientation>;
 
+  // Fetch select options
   consoleList$ = this.consoleFacade.allConsole$;
 
   constructor(
@@ -124,7 +125,7 @@ export class ManageComponent implements OnInit {
     this.gameFacade.create(payload);
   }
 
-  private formatDate(date: Date): string {
+  formatDate(date: Date): string {
     return moment(date).format('MM/DD/YYYY');
   }
 }

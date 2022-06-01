@@ -171,9 +171,27 @@
     </form>
   </mat-step>
   <mat-step>
+    <components-card-list
+      [cards]="[
+        {
+          title: gameTitleForm.controls['title'].value,
+          year: gameYearForm.controls['year'].value,
+          console: gameConsoleForm.controls['console'].value,
+          completed: gameCompletedForm.controls['completed'].value,
+          dateOfCompletion: formatDate(
+            this.gameDateOfCompletionForm.controls['dateOfCompletion'].value
+          ),
+          personalNotes: gamePersonalNotesForm.controls['personalNotes'].value
+        }
+      ]"
+      class="game-card"
+    ></components-card-list>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    <p class="v-margin">
+      After reviewing, click on submit to create a new game card.
+    </p>
     <div>
+      <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="addNewGame()">Submit</button>
     </div>
   </mat-step>
