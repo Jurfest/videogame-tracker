@@ -17,15 +17,23 @@ import * as moment from 'moment';
   styleUrls: ['./manage.component.scss'],
 })
 export class ManageComponent implements OnInit {
+  // Completion dates
   minDate = new Date();
-  maxDate = new Date();
+  currentDate = new Date();
 
-  // TODO: - Check validators and masks
+  // Year validator date
+  maxYear = moment().add(28, 'y').get('year');
+
+  // Steps forms
   gameTitleForm = this.fb.group({
     title: ['', [Validators.required, Validators.maxLength(50)]],
   });
+  // TODO: - Check validators and masks
   gameYearForm = this.fb.group({
-    year: ['', Validators.required],
+    year: [
+      '',
+      [Validators.required, Validators.min(1950), Validators.max(this.maxYear)],
+    ],
   });
   gameConsoleForm = this.fb.group({
     console: ['', Validators.required],
@@ -90,4 +98,8 @@ export class ManageComponent implements OnInit {
   private formatDate(date: Date): string {
     return moment(date).format('MM/DD/YYYY');
   }
+
+  // logMe() {
+  //   console.log(this.gameYearForm.controls['year']);
+  // };
 }

@@ -17,6 +17,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { ManageComponent } from './manage.component';
 
@@ -40,6 +41,7 @@ import { ManageComponent } from './manage.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    NgxMaskModule.forRoot(),
   ],
   declarations: [ManageComponent],
   exports: [ManageComponent],
