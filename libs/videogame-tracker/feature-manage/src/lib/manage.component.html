@@ -72,6 +72,10 @@
             {{ console.name }}
           </mat-option>
         </mat-select>
+        <mat-error
+          *ngIf="gameConsoleForm.controls['console'].hasError('required')"
+          >{{ 'Please choose a console' }}</mat-error
+        >
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>

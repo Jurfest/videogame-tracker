@@ -28,13 +28,13 @@ export class ManageComponent implements OnInit {
   gameTitleForm = this.fb.group({
     title: ['', [Validators.required, Validators.maxLength(50)]],
   });
-  // TODO: - Check validators and masks
   gameYearForm = this.fb.group({
     year: [
       '',
       [Validators.required, Validators.min(1950), Validators.max(this.maxYear)],
     ],
   });
+  // TODO: - Check validators and masks
   gameConsoleForm = this.fb.group({
     console: ['', Validators.required],
   });
