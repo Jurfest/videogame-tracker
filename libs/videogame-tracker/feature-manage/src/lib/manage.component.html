@@ -136,14 +136,29 @@
   </mat-step>
   <mat-step [stepControl]="gamePersonalNotesForm" label="Personal notes">
     <form [formGroup]="gamePersonalNotesForm" class="notes-form">
-      <mat-form-field class="full-width" appearance="fill">
+      <mat-form-field
+        class="full-width"
+        hintLabel="Max {{ notesMaxLength }} characters"
+        appearance="fill"
+      >
         <mat-label>Personal notes</mat-label>
         <textarea
           matInput
           formControlName="personalNotes"
           placeholder="Ex. This game is awesome"
+          #input
+          maxlength="{{ notesMaxLength }}"
           required
         ></textarea>
+        <mat-hint align="end"
+          >{{ input.value?.length || 0 }}/{{ notesMaxLength }}</mat-hint
+        >
+        <mat-error
+          *ngIf="
+            gamePersonalNotesForm.controls['personalNotes'].hasError('required')
+          "
+          >{{ 'Personal notes is a required field' }}</mat-error
+        >
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>

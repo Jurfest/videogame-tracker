@@ -17,36 +17,40 @@ import * as moment from 'moment';
   styleUrls: ['./manage.component.scss'],
 })
 export class ManageComponent implements OnInit {
-  // Completion dates
+  // Completion limit dates
   minDate = new Date();
   currentDate = new Date();
 
-  // Year validator date
+  // Max year validator
   maxYear = moment().add(28, 'y').get('year');
+
+  // personalNotes max characters
+  notesMaxLength = 120;
 
   // Steps forms
   gameTitleForm = this.fb.group({
     title: ['', [Validators.required, Validators.maxLength(50)]],
   });
   gameYearForm = this.fb.group({
-    year: [
-      '',
-      [Validators.required, Validators.min(1950), Validators.max(this.maxYear)],
-    ],
+    year: ['', [Validators.required, Validators.min(1950)]],
   });
-  // TODO: - Check validators and masks
   gameConsoleForm = this.fb.group({
     console: ['', Validators.required],
   });
   gameCompletedForm = this.fb.group({
-    completed: ['', Validators.required],
+    completed: [null, Validators.required],
   });
   gameDateOfCompletionForm = this.fb.group({
+    // TODO: - Check validators and masks
     dateOfCompletion: ['', Validators.required],
   });
   gamePersonalNotesForm = this.fb.group({
-    personalNotes: ['', Validators.required],
+    personalNotes: [
+      '',
+      [Validators.required, Validators.maxLength(this.notesMaxLength)],
+    ],
   });
+
   stepperOrientation: Observable<StepperOrientation>;
 
   consoleList$ = this.consoleFacade.allConsole$;
