@@ -102,8 +102,4 @@ export class ManageComponent implements OnInit {
   private formatDate(date: Date): string {
     return moment(date).format('MM/DD/YYYY');
   }
-
-  // logMe() {
-  //   console.log(this.gameYearForm.controls['year']);
-  // };
 }
