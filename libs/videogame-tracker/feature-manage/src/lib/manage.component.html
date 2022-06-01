@@ -54,9 +54,7 @@
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="setMinDateRange()" matStepperNext>
-          Next
-        </button>
+        <button mat-button (click)="onYearSubmit()" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -107,7 +105,13 @@
       >
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button
+          mat-button
+          matStepperNext
+          (click)="updateDisabledCompletionDate()"
+        >
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
