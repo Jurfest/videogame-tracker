@@ -84,12 +84,27 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="gameCompletedForm" label="Completed">
-    <form [formGroup]="gameCompletedForm">
+    <form [formGroup]="gameCompletedForm" #ngForm="ngForm">
       <mat-label>Completed</mat-label>
-      <mat-radio-group formControlName="completed" required>
+      <mat-radio-group
+        formControlName="completed"
+        [ngClass]="{
+          invalid:
+            ngForm.submitted && gameCompletedForm.controls['completed'].invalid
+        }"
+        required
+      >
         <mat-radio-button [value]="true"> Yes </mat-radio-button>
         <mat-radio-button [value]="false"> No </mat-radio-button>
       </mat-radio-group>
+      <mat-error
+        class="out-form-error"
+        *ngIf="
+          gameCompletedForm.controls['completed'].hasError('required') &&
+          ngForm.submitted
+        "
+        >{{ 'Please choose an option' }}</mat-error
+      >
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
