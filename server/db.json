@@ -53,6 +53,15 @@
       "completed": true,
       "dateOfCompletion": "04/11/2021",
       "personalNotes": "I really liked this game. Kojima really nailed here."
+    },
+    {
+      "title": "Lemmings",
+      "year": "2020",
+      "console": "PS4",
+      "completed": true,
+      "dateOfCompletion": "06/01/2022",
+      "personalNotes": "Cool",
+      "id": 6
     }
   ],
   "consoles": [

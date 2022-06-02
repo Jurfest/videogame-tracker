@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { GameDataService } from '../../infrastructure/game.data.service';
 import * as GameActions from './game.actions';
@@ -25,6 +26,7 @@ export class GameEffects {
       ofType(GameActions.createGame),
       switchMap((actions) =>
         this.gameDataService.create(actions.game).pipe(
+          tap(() => this.router.navigate(['/videogames'])),
           map((game) => GameActions.createGameSuccess({ game })),
           catchError((error) => of(GameActions.createGameFailure({ error })))
         )
@@ -34,6 +36,7 @@ export class GameEffects {
 
   constructor(
     private readonly actions$: Actions,
-    private gameDataService: GameDataService
+    private gameDataService: GameDataService,
+    private router: Router
   ) {}
 }
