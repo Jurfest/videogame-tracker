@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "videogameTracker",
+            "prefix": "auth",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "videogame-tracker",
+            "prefix": "auth",
             "style": "kebab-case"
           }
         ]

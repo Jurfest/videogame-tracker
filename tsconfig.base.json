@@ -20,6 +20,9 @@
       "@videogame-tracker/shared/ui-components": [
         "libs/shared/ui-components/src/index.ts"
       ],
+      "@videogame-tracker/shared/util-auth": [
+        "libs/shared/util-auth/src/index.ts"
+      ],
       "@videogame-tracker/videogame-tracker/domain": [
         "libs/videogame-tracker/domain/src/index.ts"
       ],
