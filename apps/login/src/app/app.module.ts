@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot({}),
