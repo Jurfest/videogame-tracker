@@ -10,11 +10,11 @@ import * as GameActions from './game.actions';
 export class GameEffects {
   loadGame$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(GameActions.loadGame),
-      switchMap(() =>
-        this.gameDataService.load().pipe(
-          map((game) => GameActions.loadGameSuccess({ game })),
-          catchError((error) => of(GameActions.loadGameFailure({ error })))
+      ofType(GameActions.loadGames),
+      switchMap((action) =>
+        this.gameDataService.loadGames(action.title).pipe(
+          map((game) => GameActions.loadGamesSuccess({ game })),
+          catchError((error) => of(GameActions.loadGamesFailure({ error })))
         )
       )
     )

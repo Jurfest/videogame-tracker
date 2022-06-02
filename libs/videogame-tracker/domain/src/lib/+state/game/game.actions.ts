@@ -2,16 +2,19 @@ import { createAction, props } from '@ngrx/store';
 
 import { Game } from '../../entities/game';
 
-export const loadGame = createAction('[Game Page] Load Game');
+export const loadGames = createAction(
+  '[Game Page] Load Games',
+  props<{ title: string }>()
+);
 
-export const loadGameSuccess = createAction(
-  '[Game/API] Load Game Success',
+export const loadGamesSuccess = createAction(
+  '[Game/API] Load Games Success',
   props<{ game: Game[] }>()
 );
 
-export const loadGameFailure = createAction(
-  '[Game/API] Load Game Failure',
-  props<{ error: any }>()
+export const loadGamesFailure = createAction(
+  '[Game/API] Load Games Failure',
+  props<{ error: string }>()
 );
 
 export const createGame = createAction(
@@ -26,5 +29,5 @@ export const createGameSuccess = createAction(
 
 export const createGameFailure = createAction(
   '[Game/API] Create Game Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );

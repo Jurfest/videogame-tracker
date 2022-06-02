@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
-import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
 
 @Component({
   selector: 'videogame-tracker-search',
@@ -22,31 +22,26 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadAllGames();
+    this.loadGames();
 
     const debounceSearchInput$ = this.searchGamesForm.controls[
       'search'
     ].valueChanges.pipe(
-      filter((criteria) => criteria.length >= 2),
+      // filter((criteria) => criteria.length >= 2),
       debounceTime(300)
     );
 
-    debounceSearchInput$
-      .pipe(
-        distinctUntilChanged(),
-        tap(() => (this.loading = true)),
-        map((input) => this.searchGames(input)),
-        tap(() => (this.loading = false))
-      )
-      .subscribe();
+    debounceSearchInput$.pipe(
+      distinctUntilChanged(),
+      tap(() => (this.loading = true)),
+      map((input) => this.loadGames(input)),
+      tap(() => (this.loading = false))
+    )
+    .subscribe();
   }
 
-  loadAllGames(): void {
-    this.gameFacade.load();
-  }
-
-  private searchGames(title: string): void {
-    this.gameFacade.search(title);
+  loadGames(title = ''): void {
+    this.gameFacade.load(title);
   }
 
   onCardChange(cards: Game[]) {

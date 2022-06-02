@@ -25,15 +25,15 @@ export const initialState: State = gameAdapter.getInitialState({
 
 const gameReducer = createReducer(
   initialState,
-  on(GameActions.loadGame, (state) => ({
+  on(GameActions.loadGames, (state) => ({
     ...state,
     loaded: false,
     error: null,
   })),
-  on(GameActions.loadGameSuccess, (state, { game }) =>
-    gameAdapter.upsertMany(game, { ...state, loaded: true })
+  on(GameActions.loadGamesSuccess, (state, { game }) =>
+    gameAdapter.setAll(game, { ...state, loaded: true })
   ),
-  on(GameActions.loadGameFailure, (state, { error }) => ({ ...state, error })),
+  on(GameActions.loadGamesFailure, (state, { error }) => ({ ...state, error })),
   on(GameActions.createGame, (state) => ({
     ...state,
     loaded: false,

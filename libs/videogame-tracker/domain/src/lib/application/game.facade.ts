@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
-import { createGame, loadGame } from '../+state/game/game.actions';
+import { createGame, loadGames } from '../+state/game/game.actions';
 import * as fromGame from '../+state/game/game.reducer';
 import * as GameSelectors from '../+state/game/game.selectors';
 import { Game } from '../entities/game';
@@ -14,12 +14,8 @@ export class GameFacade {
 
   constructor(private store: Store<fromGame.GamePartialState>) {}
 
-  load(): void {
-    this.store.dispatch(loadGame());
-  }
-
-  search(title: string): void {
-    console.log('search', title);
+  load(title: string): void {
+    this.store.dispatch(loadGames({ title }));
   }
 
   create(game: Game): void {
