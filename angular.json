@@ -7,6 +7,7 @@
     "login": "apps/login",
     "login-domain": "libs/login/domain",
     "login-e2e": "apps/login-e2e",
+    "shared-auth": "libs/shared/auth",
     "shared-ui-components": "libs/shared/ui-components",
     "videogame-tracker": "apps/videogame-tracker",
     "videogame-tracker-domain": "libs/videogame-tracker/domain",
