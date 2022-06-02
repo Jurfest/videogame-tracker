@@ -1,18 +1,25 @@
 <div
+  [ngClass]="{
+    dradAndDrop: activateDragAngDrop
+  }"
   cdkDropListOrientation="horizontal"
   cdkDropList
   (cdkDropListDropped)="sortCards($event)"
 >
-  <mat-card cdkDrag class="card" *ngFor="let card of cards; let i = index">
+  <mat-card cdkDrag class="card" *ngFor="let card of cards; let i = index" [ngClass]="{
+    dradAndDrop: activateDragAngDrop
+  }">
     <mat-card-title>{{ card?.title }}</mat-card-title>
-    <mat-card-subtitle>{{ card?.completed  ? 'Completed' : 'Incompleted' }}</mat-card-subtitle>
+    <mat-card-subtitle>{{
+      card?.completed ? 'Completed' : 'Incompleted'
+    }}</mat-card-subtitle>
     <mat-card-content>
       <p>Release year: {{ card?.year }}</p>
       <p>Console: {{ card?.console }}</p>
       <!-- TODO: Add completed icon -->
       <!-- <p>{{ card?.completed }}</p> -->
       <p *ngIf="card?.completed">Finished in: {{ card?.dateOfCompletion }}</p>
-      <p>{{'"' + card?.personalNotes + '"'}}</p>
+      <p>{{ '"' + card?.personalNotes + '"' }}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>
