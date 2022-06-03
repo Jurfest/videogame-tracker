@@ -11,7 +11,7 @@ sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
 
 module.exports = {
   output: {
-    uniqueName: 'dashboard',
+    uniqueName: 'videogameTracker',
     publicPath: 'auto',
   },
   optimization: {
@@ -29,9 +29,12 @@ module.exports = {
     new ModuleFederationPlugin({
       library: { type: 'module' },
 
-      remotes: {
-        login: 'http://localhost:3000/remoteEntry.js',
-        videogameTracker: "http://localhost:5000/remoteEntry.js",
+      // For remotes (please adjust)
+      name: 'videogameTracker',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Module':
+          './apps/videogame-tracker/src/app/remote-entry/entry.module.ts',
       },
 
       shared: share({

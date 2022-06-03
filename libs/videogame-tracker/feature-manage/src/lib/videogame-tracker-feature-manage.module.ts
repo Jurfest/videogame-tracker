@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
 import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
 import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
 import { NgxMaskModule } from 'ngx-mask';
@@ -44,6 +45,12 @@ import { ManageComponent } from './manage.component';
     MatRadioModule,
     NgxMaskModule.forRoot(),
     SharedUiComponentsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ManageComponent,
+      },
+    ]),
   ],
   declarations: [ManageComponent],
   exports: [ManageComponent],

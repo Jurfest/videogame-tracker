@@ -11,11 +11,16 @@ export const APP_ROUTES: Routes = [
         redirectTo: '/login',
         pathMatch: 'full',
       },
+      // {
+      //   path: 'videogames',
+      //   loadChildren: () =>
+      //     import('videogameTracker/Module').then((m) => m.RemoteEntryModule),
+      //   canActivate: [AuthGuard],
+      // },
       {
         path: 'login',
         loadChildren: () =>
           import('login/Module').then((m) => m.RemoteEntryModule),
-        canActivate: [AuthGuard],
       },
     ],
   },

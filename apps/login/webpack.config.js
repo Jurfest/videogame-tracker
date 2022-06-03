@@ -6,7 +6,7 @@ const share = mf.share;
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
   /* mapped paths to share */
-  '@videogame-tracker/shared/util-auth'
+  '@videogame-tracker/shared/util-auth',
 ]);
 
 module.exports = {

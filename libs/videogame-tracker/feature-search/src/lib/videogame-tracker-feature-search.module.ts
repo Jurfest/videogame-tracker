@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -32,7 +33,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatSelectModule,
     SharedUiComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: SearchComponent,
+      },
+    ]),
   ],
   declarations: [SearchComponent],
   exports: [SearchComponent],
