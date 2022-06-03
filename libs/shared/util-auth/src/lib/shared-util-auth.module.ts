@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromAuth from './+state/auth.reducer';
+import { StoreModule } from '@ngrx/store';
+
 import { AuthEffects } from './+state/auth.effects';
 import { AuthFacade } from './+state/auth.facade';
+import * as fromAuth from './+state/auth.reducer';
 
 @NgModule({
   imports: [
