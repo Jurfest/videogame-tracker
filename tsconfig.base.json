@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@videogame-tracker/login/domain": ["libs/login/domain/src/index.ts"],
+      "@videogame-tracker/login/feature-auth": [
+        "libs/login/feature-auth/src/index.ts"
+      ],
       "@videogame-tracker/shared/auth": ["libs/shared/auth/src/index.ts"],
       "@videogame-tracker/shared/ui-components": [
         "libs/shared/ui-components/src/index.ts"
