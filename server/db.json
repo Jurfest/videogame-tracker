@@ -89,5 +89,9 @@
       "id": 5,
       "name": "NINTENDO SWITCH"
     }
-  ]
+  ],
+  "login": {
+    "id": 1,
+    "name": "Bob"
+  }
 }

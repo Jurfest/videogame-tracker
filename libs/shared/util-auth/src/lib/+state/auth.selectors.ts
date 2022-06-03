@@ -34,3 +34,8 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
 );
+
+export const getAuthUser = createSelector(
+  getAllAuth,
+  (entities) => entities[0] || null
+);

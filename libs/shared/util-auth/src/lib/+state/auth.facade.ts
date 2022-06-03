@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { select, Store, Action } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import * as AuthActions from './auth.actions';
-import * as AuthFeature from './auth.reducer';
 import * as AuthSelectors from './auth.selectors';
 
 @Injectable()
@@ -12,16 +11,12 @@ export class AuthFacade {
    * and expose them as observables through the facade.
    */
   loaded$ = this.store.pipe(select(AuthSelectors.getAuthLoaded));
-  allAuth$ = this.store.pipe(select(AuthSelectors.getAllAuth));
+  authUser$ = this.store.pipe(select(AuthSelectors.getAuthUser));
   selectedAuth$ = this.store.pipe(select(AuthSelectors.getSelected));
 
   constructor(private readonly store: Store) {}
 
-  /**
-   * Use the initialization action to perform one
-   * or more tasks in your Effects.
-   */
-  init() {
-    this.store.dispatch(AuthActions.init());
+  login(user: string, password: string): void {
+    this.store.dispatch(AuthActions.login({ user, password }));
   }
 }

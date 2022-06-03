@@ -26,11 +26,11 @@ export const initialState: State = authAdapter.getInitialState({
 
 const authReducer = createReducer(
   initialState,
-  on(AuthActions.init, (state) => ({ ...state, loaded: false, error: null })),
-  on(AuthActions.loadAuthSuccess, (state, { auth }) =>
-    authAdapter.setAll(auth, { ...state, loaded: true })
+  on(AuthActions.login, (state) => ({ ...state, loaded: false, error: null })),
+  on(AuthActions.loginSuccess, (state, { auth }) =>
+    authAdapter.setOne(auth, { ...state, loaded: true })
   ),
-  on(AuthActions.loadAuthFailure, (state, { error }) => ({ ...state, error }))
+  on(AuthActions.loginFailure, (state, { error }) => ({ ...state, error }))
 );
 
 export function reducer(state: State | undefined, action: Action) {
