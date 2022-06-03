@@ -1,3 +1,3 @@
 export * from './lib/login-feature-auth.module';
 
-export * from './lib/auth.component';
+export * from './lib/components/login/login.component';

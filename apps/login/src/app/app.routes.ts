@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthComponent } from '@videogame-tracker/login/feature-auth';
+import { LoginComponent } from '@videogame-tracker/login/feature-auth';
 
 export const APP_ROUTES: Routes = [
   {
@@ -9,6 +9,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'login',
-    component: AuthComponent,
+    component: LoginComponent,
   },
 ];
