@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
 import { LoginDomainModule } from '@videogame-tracker/login/domain';
 import { SharedUtilAuthModule } from '@videogame-tracker/shared/util-auth';
 
@@ -21,6 +22,12 @@ import { LoginComponent } from './components/login/login.component';
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: LoginComponent,
+      },
+    ]),
   ],
   declarations: [LoginComponent],
   exports: [LoginComponent],

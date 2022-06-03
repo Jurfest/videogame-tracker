@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/videogame-tracker/domain"],
+      "outputs": [
+        "dist/libs/videogame-tracker/domain"
+      ],
       "options": {
         "project": "libs/videogame-tracker/domain/ng-package.json"
       },
@@ -21,7 +23,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/videogame-tracker/domain"],
+      "outputs": [
+        "coverage/libs/videogame-tracker/domain"
+      ],
       "options": {
         "jestConfig": "libs/videogame-tracker/domain/jest.config.ts",
         "passWithNoTests": true
@@ -37,5 +41,8 @@
       }
     }
   },
-  "tags": ["domain:videogame-tracker", "type:domain-logic"]
+  "tags": [
+    "domain:videogame-tracker",
+    "type:domain-logic"
+  ]
 }

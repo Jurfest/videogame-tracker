@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/videogame-tracker",
         "index": "apps/videogame-tracker/src/index.html",
@@ -85,12 +87,17 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/videogame-tracker"],
+      "outputs": [
+        "coverage/apps/videogame-tracker"
+      ],
       "options": {
         "jestConfig": "apps/videogame-tracker/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["domain:videogame-tracker", "type:app"]
+  "tags": [
+    "domain:videogame-tracker",
+    "type:app"
+  ]
 }

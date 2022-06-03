@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/login/feature-auth"],
+      "outputs": [
+        "dist/libs/login/feature-auth"
+      ],
       "options": {
         "project": "libs/login/feature-auth/ng-package.json"
       },
@@ -21,7 +23,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/login/feature-auth"],
+      "outputs": [
+        "coverage/libs/login/feature-auth"
+      ],
       "options": {
         "jestConfig": "libs/login/feature-auth/jest.config.ts",
         "passWithNoTests": true
@@ -37,5 +41,8 @@
       }
     }
   },
-  "tags": ["domain:login", "type:feature"]
+  "tags": [
+    "domain:login",
+    "type:feature"
+  ]
 }

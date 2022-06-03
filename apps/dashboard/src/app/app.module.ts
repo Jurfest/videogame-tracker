@@ -16,6 +16,7 @@ import { APP_ROUTES } from './app.routes';
       errorHandler: (err) => {
         console.log('Router error: ', err);
       },
+      initialNavigation: 'enabledBlocking',
     }),
   ],
   providers: [],

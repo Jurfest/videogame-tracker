@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/shared/util-auth"],
+      "outputs": [
+        "dist/libs/shared/util-auth"
+      ],
       "options": {
         "project": "libs/shared/util-auth/ng-package.json"
       },
@@ -21,7 +23,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/util-auth"],
+      "outputs": [
+        "coverage/libs/shared/util-auth"
+      ],
       "options": {
         "jestConfig": "libs/shared/util-auth/jest.config.ts",
         "passWithNoTests": true
@@ -37,5 +41,8 @@
       }
     }
   },
-  "tags": ["domain:shared", "type:util"]
+  "tags": [
+    "domain:shared",
+    "type:util"
+  ]
 }
