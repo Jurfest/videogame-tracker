@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { BehaviorSubject, of, Subject } from 'rxjs';
 
 import * as AuthActions from './auth.actions';
 import * as AuthSelectors from './auth.selectors';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthFacade {
   /**
    * Combine pieces of state using createSelector,
@@ -23,6 +24,5 @@ export class AuthFacade {
   logout(): void {
     // TODO: - Add new action to remove user
     console.log('here');
-
   }
 }

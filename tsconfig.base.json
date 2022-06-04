@@ -29,6 +29,9 @@
       "@videogame-tracker/videogame-tracker/domain": [
         "libs/videogame-tracker/domain/src/index.ts"
       ],
+      "@videogame-tracker/videogame-tracker/feature-login": [
+        "libs/videogame-tracker/feature-login/src/index.ts"
+      ],
       "@videogame-tracker/videogame-tracker/feature-manage": [
         "libs/videogame-tracker/feature-manage/src/index.ts"
       ],

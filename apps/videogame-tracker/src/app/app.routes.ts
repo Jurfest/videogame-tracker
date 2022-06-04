@@ -21,28 +21,17 @@ export const APP_ROUTES: Routes = [
       import('@videogame-tracker/videogame-tracker/feature-manage').then(
         (m) => m.VideogameTrackerFeatureManageModule
       ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('@videogame-tracker/videogame-tracker/feature-login').then(
+        (m) => m.VideogameTrackerFeatureLoginModule
+      ),
   },
   // {
-  //   path: 'login',
-  //   loadChildren: () =>
-  //     import('login/Module').then((m) => m.RemoteEntryModule),
+  //   path: '**',
+  //   redirectTo: '/games-catalog',
   // },
-  {
-    path: '**',
-    redirectTo: '/games-catalog',
-  },
 ];
-
-//   path: '',
-//   loadChildren: () =>
-//     import('@videogame-tracker/videogame-tracker/feature-search').then(
-//       (m) => m.VideogameTrackerFeatureSearchModule
-//     ),
-// },
-// {
-//   path: 'add',
-//   loadChildren: () =>
-//     import('@videogame-tracker/videogame-tracker/feature-manage').then(
-//       (m) => m.VideogameTrackerFeatureManageModule
-//     ),
-// },

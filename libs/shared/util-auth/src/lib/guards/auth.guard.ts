@@ -16,7 +16,7 @@ import { AuthFacade } from '../+state/auth.facade';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    // private authFacade: AuthFacade,
+    private authFacade: AuthFacade,
     private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -26,14 +26,16 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      return true
-    // return this.authFacade.activeUser$.pipe(
-      // map((activeUser) => Boolean(activeUser)),
-      // tap((isLoggedIn) => {
-      //   if (!isLoggedIn) {
-      //     this.router.navigateByUrl('login');
-      //   }
-      // })
-    // );
+      // return true
+    return this.authFacade.activeUser$.pipe(
+      map((activeUser) => Boolean(activeUser)),
+      tap((isLoggedIn) => {
+        console.log('to logado?', isLoggedIn);
+
+        if (!isLoggedIn) {
+          this.router.navigateByUrl('login');
+        }
+      })
+    );
   }
 }

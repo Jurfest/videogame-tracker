@@ -4,6 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { AuthEffects } from './+state/auth.effects';
+import { AuthFacade } from './+state/auth.facade';
 import * as fromAuth from './+state/auth.reducer';
 
 @NgModule({
@@ -12,6 +13,6 @@ import * as fromAuth from './+state/auth.reducer';
     StoreModule.forFeature(fromAuth.AUTH_FEATURE_KEY, fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects]),
   ],
-  providers: [],
+  providers: [AuthFacade],
 })
 export class SharedUtilAuthModule {}

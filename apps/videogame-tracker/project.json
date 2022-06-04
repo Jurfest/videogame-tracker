@@ -85,17 +85,12 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/videogame-tracker"
-      ],
+      "outputs": ["coverage/apps/videogame-tracker"],
       "options": {
         "jestConfig": "apps/videogame-tracker/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": [
-    "domain:videogame-tracker",
-    "type:app"
-  ]
+  "tags": ["domain:videogame-tracker", "type:app"]
 }
