@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthFacade } from '@videogame-tracker/shared/util-auth';
 
 @Component({
   selector: 'videogame-tracker-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'dashboard';
+  // activeUser$ = this.authFacade.activeUser$;
+
+  // constructor(private authFacade: AuthFacade) {}
+
+  logout(): void {
+    // this.authFacade.logout();
+  }
 }

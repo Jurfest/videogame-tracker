@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { AuthGuard } from '@videogame-tracker/shared/util-auth';
+// import { AuthGuard } from '@videogame-tracker/shared/util-auth';
 
 export const APP_ROUTES: Routes = [
   {

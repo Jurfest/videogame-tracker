@@ -19,4 +19,8 @@ export class AuthFacade {
   login(user: string, password: string): void {
     this.store.dispatch(AuthActions.login({ user, password }));
   }
+
+  logout(): void {
+    // TODO: - Add new action to remove user
+  }
 }

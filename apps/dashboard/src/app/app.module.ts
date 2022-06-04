@@ -14,6 +14,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -43,6 +44,7 @@ import { MatButtonModule } from '@angular/material/button';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot(),
+    SharedUiComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
