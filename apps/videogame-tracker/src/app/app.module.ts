@@ -1,8 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -12,14 +15,24 @@ import { VideogameTrackerFeatureSearchModule } from '@videogame-tracker/videogam
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavbarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES),
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterModule.forRoot(APP_ROUTES, {
+      preloadingStrategy: PreloadAllModules,
+      errorHandler: (err) => {
+        console.log('Router error: ', err);
+      },
+      initialNavigation: 'enabledBlocking',
+    }),
     StoreModule.forRoot(
       {},
       {
