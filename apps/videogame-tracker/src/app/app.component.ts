@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthFacade } from '@videogame-tracker/shared/util-auth';
-import { map, tap } from 'rxjs/operators';
+import { first, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'videogame-tracker-root',
@@ -11,10 +11,13 @@ export class AppComponent {
   activeUser$ = this.authFacade.activeUser$;
 
   constructor(private authFacade: AuthFacade) {
-    this.authFacade.activeUser$
+    this.authFacade.activeUser$;
   }
 
   logout(): void {
-    this.authFacade.logout();
+    // TODO: - Save user data in session storage
+    this.authFacade.activeUser$.pipe(first()).subscribe((userData) => {
+      return this.authFacade.logout(userData.id);
+    });
   }
 }

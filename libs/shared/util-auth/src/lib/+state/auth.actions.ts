@@ -16,3 +16,18 @@ export const loginFailure = createAction(
   '[Auth/API] Login Failure',
   props<{ error: string }>()
 );
+
+export const logout = createAction(
+  '[Auth Page] Logout',
+  props<{ userId: string }>()
+);
+
+export const logoutSuccess = createAction(
+  '[Auth/API] Logout Success',
+  props<{ userId: string }>()
+);
+
+export const logoutFailure = createAction(
+  '[Auth/API] Logout Failure',
+  props<{ error: string }>()
+);

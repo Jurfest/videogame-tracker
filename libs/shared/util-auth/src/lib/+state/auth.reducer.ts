@@ -30,7 +30,12 @@ const authReducer = createReducer(
   on(AuthActions.loginSuccess, (state, { auth }) =>
     authAdapter.setOne(auth, { ...state, loaded: true })
   ),
-  on(AuthActions.loginFailure, (state, { error }) => ({ ...state, error }))
+  on(AuthActions.loginFailure, (state, { error }) => ({ ...state, error })),
+  on(AuthActions.logout, (state) => ({ ...state, loaded: false, error: null })),
+  on(AuthActions.logoutSuccess, (state, { userId }) =>
+    authAdapter.removeOne(userId, { ...state, loaded: true })
+  ),
+  on(AuthActions.logoutFailure, (state, { error }) => ({ ...state, error }))
 );
 
 export function reducer(state: State | undefined, action: Action) {

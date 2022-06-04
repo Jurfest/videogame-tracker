@@ -91,7 +91,10 @@
     }
   ],
   "login": {
-    "id": 1,
+    "id": "1",
     "name": "Bob"
+  },
+  "revokeToken": {
+    "userId": "1"
   }
 }
