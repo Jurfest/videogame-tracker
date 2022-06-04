@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    // TODO: - Get accessToken from session storage trought service and add it to headers
+    // TODO: - Get accessToken from session storage through service and add it to headers
 
     // Add Content-Type
     if (!request.headers.has('Content-Type')) {
