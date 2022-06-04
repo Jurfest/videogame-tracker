@@ -9,8 +9,8 @@ import * as fromAuth from './+state/auth.reducer';
 @NgModule({
   imports: [
     CommonModule,
-    // StoreModule.forFeature(fromAuth.AUTH_FEATURE_KEY, fromAuth.reducer),
-    // EffectsModule.forFeature([AuthEffects]),
+    StoreModule.forFeature(fromAuth.AUTH_FEATURE_KEY, fromAuth.reducer),
+    EffectsModule.forFeature([AuthEffects]),
   ],
   providers: [],
 })

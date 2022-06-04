@@ -1,18 +1,26 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from '@videogame-tracker/shared/util-auth';
 
 export const APP_ROUTES: Routes = [
   {
     path: '',
-    redirectTo: '/search-games',
+    redirectTo: '/games-catalog',
     pathMatch: 'full',
   },
   {
-    path: 'search-games',
+    path: 'games-catalog',
     loadChildren: () =>
       import('@videogame-tracker/videogame-tracker/feature-search').then(
         (m) => m.VideogameTrackerFeatureSearchModule
       ),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add',
+    loadChildren: () =>
+      import('@videogame-tracker/videogame-tracker/feature-manage').then(
+        (m) => m.VideogameTrackerFeatureManageModule
+      ),
   },
   // {
   //   path: 'login',
@@ -21,7 +29,7 @@ export const APP_ROUTES: Routes = [
   // },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '/games-catalog',
   },
 ];
 

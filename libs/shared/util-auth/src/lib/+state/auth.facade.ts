@@ -22,5 +22,7 @@ export class AuthFacade {
 
   logout(): void {
     // TODO: - Add new action to remove user
+    console.log('here');
+
   }
 }
