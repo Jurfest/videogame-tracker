@@ -9,7 +9,7 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { SharedUtilAuthModule } from '@videogame-tracker/shared/util-auth';
+import { VideogameTrackerFeatureLoginModule } from '@videogame-tracker/videogame-tracker/feature-login';
 import { VideogameTrackerFeatureManageModule } from '@videogame-tracker/videogame-tracker/feature-manage';
 import { VideogameTrackerFeatureSearchModule } from '@videogame-tracker/videogame-tracker/feature-search';
 
@@ -48,7 +48,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     VideogameTrackerFeatureSearchModule,
     VideogameTrackerFeatureManageModule,
-    SharedUtilAuthModule
+    // SharedUtilAuthModule
+    VideogameTrackerFeatureLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent],
