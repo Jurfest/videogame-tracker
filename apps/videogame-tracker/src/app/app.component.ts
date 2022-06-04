@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   logout(): void {
-    // TODO: - Save user data in session storage
+    // TODO: - Save user data in session storage and retrieve id from there
     this.authFacade.activeUser$.pipe(first()).subscribe((userData) => {
       return this.authFacade.logout(userData.id);
     });

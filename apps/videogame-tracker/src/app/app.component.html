@@ -1,2 +1,5 @@
-<videogame-tracker-navbar *ngIf="activeUser$ | async" (logout)="logout()"></videogame-tracker-navbar>
+<videogame-tracker-navbar
+  *ngIf="activeUser$ | async"
+  (logout)="logout()"
+></videogame-tracker-navbar>
 <router-outlet></router-outlet>
