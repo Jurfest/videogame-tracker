@@ -1,10 +1,14 @@
-<h1>Videogames catalog</h1>
+<h2 class="title">Games catalog</h2>
 
 <form [formGroup]="searchGamesForm">
-  <p>
+  <p class="filter">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
-      <input formControlName="search" matInput placeholder="Search for title or completion date" />
+      <input
+        formControlName="search"
+        matInput
+        placeholder="Search for title or completion date"
+      />
       <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
