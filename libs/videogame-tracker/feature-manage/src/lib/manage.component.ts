@@ -1,15 +1,16 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { StepperOrientation } from '@angular/material/stepper';
 import {
   ConsoleFacade,
   Game,
   GameFacade,
 } from '@videogame-tracker/videogame-tracker/domain';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { StepperOrientation } from '@angular/material/stepper';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import * as moment from 'moment';
 
 @Component({
   selector: 'videogame-tracker-manage',
@@ -17,7 +18,7 @@ import * as moment from 'moment';
   styleUrls: ['./manage.component.scss'],
 })
 export class ManageComponent implements OnInit {
-  // Completion limit dates
+  // Limit dates for completion
   minDate = new Date();
   currentDate = new Date();
 
@@ -61,7 +62,8 @@ export class ManageComponent implements OnInit {
     private gameFacade: GameFacade,
     private consoleFacade: ConsoleFacade,
     private fb: FormBuilder,
-    breakpointObserver: BreakpointObserver
+    breakpointObserver: BreakpointObserver,
+    private location: Location
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 65.625rem)')
@@ -127,5 +129,9 @@ export class ManageComponent implements OnInit {
 
   formatDate(date: Date): string {
     return moment(date).format('MM/DD/YYYY');
+  }
+
+  goBackBtn() {
+    this.location.back();
   }
 }
