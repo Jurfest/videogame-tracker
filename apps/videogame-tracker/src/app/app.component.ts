@@ -9,13 +9,9 @@ import { map, tap } from 'rxjs/operators';
 })
 export class AppComponent {
   activeUser$ = this.authFacade.activeUser$;
-  isLoggedIn = false;
 
   constructor(private authFacade: AuthFacade) {
-    this.authFacade.activeUser$.pipe(
-      map((activeUser) => Boolean(activeUser)),
-      tap((isLoggedIn) => this.isLoggedIn = isLoggedIn)
-    );
+    this.authFacade.activeUser$
   }
 
   logout(): void {

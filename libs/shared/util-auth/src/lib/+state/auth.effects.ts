@@ -31,7 +31,7 @@ export class AuthEffects {
       ofType(AuthActions.loginSuccess),
       fetch({
         run: () => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/games-catalog']);
           return;
         },
       })

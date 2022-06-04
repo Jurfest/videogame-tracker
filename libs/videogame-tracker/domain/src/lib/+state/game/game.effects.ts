@@ -26,7 +26,7 @@ export class GameEffects {
       ofType(GameActions.createGame),
       switchMap((actions) =>
         this.gameDataService.create(actions.game).pipe(
-          tap(() => this.router.navigate(['/videogames'])),
+          tap(() => this.router.navigate(['/games-catalog'])),
           map((game) => GameActions.createGameSuccess({ game })),
           catchError((error) => of(GameActions.createGameFailure({ error })))
         )

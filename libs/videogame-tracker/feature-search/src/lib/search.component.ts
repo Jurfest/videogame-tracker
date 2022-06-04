@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
 import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
 
@@ -11,15 +12,17 @@ import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
 export class SearchComponent implements OnInit {
   gameList$ = this.gameFacade.gameList$;
 
-  searchGamesForm: FormGroup;
+  searchGamesForm = this.fb.group({
+    search: [''],
+  });
 
   loading: boolean | undefined;
 
-  constructor(private gameFacade: GameFacade, private fb: FormBuilder) {
-    this.searchGamesForm = this.fb.group({
-      search: [''],
-    });
-  }
+  constructor(
+    private gameFacade: GameFacade,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loadGames();
@@ -31,20 +34,25 @@ export class SearchComponent implements OnInit {
       debounceTime(300)
     );
 
-    debounceSearchInput$.pipe(
-      distinctUntilChanged(),
-      tap(() => (this.loading = true)),
-      map((input) => this.loadGames(input)),
-      tap(() => (this.loading = false))
-    )
-    .subscribe();
+    debounceSearchInput$
+      .pipe(
+        distinctUntilChanged(),
+        tap(() => (this.loading = true)),
+        map((input) => this.loadGames(input)),
+        tap(() => (this.loading = false))
+      )
+      .subscribe();
   }
 
   loadGames(title = ''): void {
     this.gameFacade.load(title);
   }
 
+  goToCreateNewGame() {
+    this.router.navigate(['/add']);
+  }
+
   onCardChange(cards: Game[]) {
-    console.log(cards);
+    // TODO: - Perform actions after a card is droped
   }
 }

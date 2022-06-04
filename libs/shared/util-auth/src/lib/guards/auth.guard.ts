@@ -26,12 +26,9 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      // return true
     return this.authFacade.activeUser$.pipe(
       map((activeUser) => Boolean(activeUser)),
       tap((isLoggedIn) => {
-        console.log('to logado?', isLoggedIn);
-
         if (!isLoggedIn) {
           this.router.navigateByUrl('login');
         }
