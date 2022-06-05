@@ -1,5 +1,6 @@
 export interface Card {
   id?: number;
+  age?: number;
   title: string;
   year: string;
   console: string;

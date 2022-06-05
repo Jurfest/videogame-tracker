@@ -12,6 +12,20 @@ const baseUrl = 'http://localhost:3001/games';
 export class GameDataService {
   constructor(private http: HttpClient) {}
 
+  private sortCardsDesc(games: Game[]): Game[] {
+    return games.sort((a: Game, b: Game) =>
+      moment(b.dateOfCompletion, 'MM/DD/YYYY').diff(
+        moment(a.dateOfCompletion, 'MM/DD/YYYY')
+      )
+    );
+  }
+
+  private insertCalcAgeInGame(games: Game[]): Game[] {
+    return games.map((game) => {
+      return { ...game, age: Number(moment().get('y')) - Number(game.year) };
+    });
+  }
+
   loadGames(title: string): Observable<Game[]> {
     const params = new HttpParams().set('_sort', 'year').set('_order', 'desc');
 
@@ -21,13 +35,8 @@ export class GameDataService {
           game.title.toLowerCase().includes(title.toLowerCase())
         )
       ),
-      map((res) =>
-        res.sort((a: Game, b: Game) => {
-          return moment(b.dateOfCompletion, 'MM/DD/YYYY').diff(
-            moment(a.dateOfCompletion, 'MM/DD/YYYY')
-          );
-        })
-      )
+      map((filteredGames) => this.sortCardsDesc(filteredGames)),
+      map((sortedGames) => this.insertCalcAgeInGame(sortedGames))
     );
   }
 
