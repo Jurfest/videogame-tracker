@@ -1,58 +1,58 @@
 {
   "games": [
     {
-      "id": 1,
       "title": "Metal Gear Solid 2",
       "year": "2001",
       "console": "PS2",
       "completed": true,
       "dateOfCompletion": "07/08/2021",
-      "personalNotes": "I really liked this game. Kojima really nailed here."
+      "personalNotes": "I really liked this game. Kojima really nailed here.",
+      "id": 1
     },
     {
-      "id": 2,
       "title": "FIFA 22",
       "year": "2021",
       "console": "XBOX ONE",
       "completed": true,
       "dateOfCompletion": "01/10/2021",
-      "personalNotes": "Very realistic and fun soccer game. Nice job from EA Sports."
+      "personalNotes": "Very realistic and fun soccer game. Nice job from EA Sports.",
+      "id": 2
     },
     {
-      "id": 3,
       "title": "Mortal Kombat 11",
       "year": "2019",
       "console": "PS4",
       "completed": true,
-      "dateOfCompletion": "23/04/2019",
-      "personalNotes": "As always, Raiden is the best character."
+      "dateOfCompletion": "04/23/2019",
+      "personalNotes": "As always, Raiden is the best character.",
+      "id": 3
     },
     {
-      "id": 4,
       "title": "Animal Crossing: New Horizons",
       "year": "2020",
       "console": "NINTENDO SWITCH",
       "completed": true,
-      "dateOfCompletion": "20/05/2020",
-      "personalNotes": "BAFTA Video Games Award: Best Multiplayer. Really nice."
+      "dateOfCompletion": "05/20/2020",
+      "personalNotes": "BAFTA Video Games Award: Best Multiplayer. Really nice.",
+      "id": 4
     },
     {
-      "id": 5,
       "title": "Horizon Forbidden West",
       "year": "2022",
       "console": "PS5",
       "completed": true,
-      "dateOfCompletion": "18/02/2022",
-      "personalNotes": "A true adventure."
+      "dateOfCompletion": "02/18/2022",
+      "personalNotes": "A true adventure.",
+      "id": 5
     },
     {
-      "id": 5,
       "title": "FORZA HORIZON 5",
       "year": "2021",
       "console": "XBOX SERIES X",
       "completed": true,
       "dateOfCompletion": "04/11/2021",
-      "personalNotes": "I really liked this game. Kojima really nailed here."
+      "personalNotes": "I really liked this game. Kojima really nailed here.",
+      "id": 6
     },
     {
       "title": "Lemmings",
@@ -61,7 +61,7 @@
       "completed": true,
       "dateOfCompletion": "06/01/2022",
       "personalNotes": "Cool",
-      "id": 6
+      "id": 7
     }
   ],
   "consoles": [
