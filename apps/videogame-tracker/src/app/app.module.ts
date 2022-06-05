@@ -48,7 +48,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     VideogameTrackerFeatureSearchModule,
     VideogameTrackerFeatureManageModule,
-    // SharedUtilAuthModule
     VideogameTrackerFeatureLoginModule
   ],
   providers: [],
