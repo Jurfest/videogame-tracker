@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
-import { SearchComponent } from './search.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,9 +13,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
-import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
+import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
+
+import { SearchComponent } from './search.component';
 
 @NgModule({
   imports: [
@@ -32,6 +34,7 @@ import { RouterModule } from '@angular/router';
     MatMenuModule,
     MatTableModule,
     MatSelectModule,
+    MatAutocompleteModule,
     SharedUiComponentsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
