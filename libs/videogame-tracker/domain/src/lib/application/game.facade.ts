@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { createGame, loadGames } from '../+state/game/game.actions';
 import * as fromGame from '../+state/game/game.reducer';
@@ -14,8 +15,9 @@ export class GameFacade {
 
   constructor(private store: Store<fromGame.GamePartialState>) {}
 
-  load(title: string): void {
-    this.store.dispatch(loadGames({ title }));
+  load(title: string): Observable<Game[]> {
+     this.store.dispatch(loadGames({ title }));
+     return this.gameList$;
   }
 
   create(game: Game): void {

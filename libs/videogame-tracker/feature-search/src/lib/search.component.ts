@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Game, GameFacade } from '@videogame-tracker/videogame-tracker/domain';
-import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap, tap } from 'rxjs';
+
+export interface GameGroup {
+  letter: string;
+  names: string[];
+}
 
 @Component({
   selector: 'videogame-tracker-search',
@@ -10,7 +15,7 @@ import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  gameList$ = this.gameFacade.gameList$;
+  gameList$: Observable<Game[]> | undefined;
 
   searchGamesForm = this.fb.group({
     search: [''],
@@ -18,34 +23,34 @@ export class SearchComponent implements OnInit {
 
   loading: boolean | undefined;
 
+  gameGroups: GameGroup[] = [];
+
   constructor(
     private gameFacade: GameFacade,
     private fb: FormBuilder,
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadGames();
 
     const debounceSearchInput$ = this.searchGamesForm.controls[
       'search'
     ].valueChanges.pipe(
-      // filter((criteria) => criteria.length >= 2),
       debounceTime(300)
     );
 
-    debounceSearchInput$
-      .pipe(
-        distinctUntilChanged(),
-        tap(() => (this.loading = true)),
-        map((input) => this.loadGames(input)),
-        tap(() => (this.loading = false))
-      )
-      .subscribe();
+    this.gameList$ = debounceSearchInput$.pipe(
+      startWith(''),
+      distinctUntilChanged(),
+      tap(() => (this.loading = true)),
+      switchMap((input) => this.loadGames(input)),
+      tap(() => (this.loading = false))
+    );
   }
 
-  loadGames(title = ''): void {
-    this.gameFacade.load(title);
+  loadGames(title = ''): Observable<Game[]> {
+    return this.gameFacade.load(title);
   }
 
   goToCreateNewGame() {
