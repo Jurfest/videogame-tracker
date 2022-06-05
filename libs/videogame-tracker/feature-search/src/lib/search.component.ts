@@ -41,8 +41,6 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadGames();
-
     const debounceSearchInput$ = this.searchGamesForm.controls[
       'search'
     ].valueChanges.pipe(debounceTime(300));
@@ -81,7 +79,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  loadGames(title = ''): Observable<Game[]> {
+  private loadGames(title = ''): Observable<Game[]> {
     return this.gameFacade.load(title);
   }
 
