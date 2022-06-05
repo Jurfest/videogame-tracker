@@ -40,16 +40,6 @@ export class GameDataService {
     );
   }
 
-  /**
-   * NOTE: This method is not used. At the moment it just exemplifies a
-   * call that filters through the backend
-   */
-  findGamesInServer(title: string): Observable<Game[]> {
-    const params = new HttpParams().set('title', title);
-    const headers = new HttpHeaders().set('Accept', 'application/json');
-    return this.http.get<Game[]>(baseUrl, { params, headers });
-  }
-
   create(game: Game): Observable<Game> {
     return this.http.post<Game>(baseUrl, game);
   }

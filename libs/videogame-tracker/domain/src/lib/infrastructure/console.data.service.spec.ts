@@ -1,5 +1,5 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsoleEntity } from '../entities/console.models';
 
@@ -49,7 +49,7 @@ describe('ConsoleDataService', () => {
     expect(consoleDataservice).toBeTruthy();
   });
 
-  it('should retrieve all data', () => {
+  it('should retrieve all data', waitForAsync(() => {
     consoleDataservice.load().subscribe((consoleList) => {
       expect(consoleList).toBeTruthy();
       expect(consoleList.length).toBe(6);
@@ -63,7 +63,7 @@ describe('ConsoleDataService', () => {
     );
     expect(req.request.method).toEqual('GET');
     req.flush(mockConsoles);
-  });
+  }));
 
   afterEach(() => {
     httpTestingController.verify();
