@@ -19,7 +19,7 @@
 <p align="center">
   <a href="#computer-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installing-the-application">How to run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#notes-notes">Notes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#notes-notes">Notes</a>
 </p>
 <br><br>
 
@@ -74,7 +74,7 @@ $ npx jest
   <li>
     <p>
     Session Storage for user login was not implemetend.
-    For that reason reloading the page will cause the user to be logged out
+    For that reason reloading the page will cause the user to be logged out.
     <p>
   </li>
 </ul>
@@ -178,8 +178,8 @@ Teams using Nx gain the advantage of building full-stack applications with their
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
 
-### Thats it ! :wave:
-
 ---
+
+### Thats it ! :wave:
 
 by Diego Jurfest :tada:
