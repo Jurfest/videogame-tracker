@@ -16,6 +16,7 @@ import {
   reducer,
 } from '../+state/console/console.reducer';
 import * as ConsoleSelectors from '../+state/console/console.selectors';
+import { HttpClientModule } from '@angular/common/http';
 
 interface TestSchema {
   console: State;
@@ -35,6 +36,7 @@ describe('ConsoleFacade', () => {
         imports: [
           StoreModule.forFeature(CONSOLE_FEATURE_KEY, reducer),
           EffectsModule.forFeature([ConsoleEffects]),
+          HttpClientModule
         ],
         providers: [ConsoleFacade],
       })
@@ -58,14 +60,14 @@ describe('ConsoleFacade', () => {
     /**
      * The initially generated facade::loadAll() returns empty array
      */
-    // it('loadAll() should return empty list with loaded == true', async () => {
+    // it('loadAll() should return not empty list with loaded == true', async () => {
     //   let list = await readFirst(facade.allConsole$);
     //   let isLoaded = await readFirst(facade.loaded$);
 
     //   expect(list.length).toBe(0);
     //   expect(isLoaded).toBe(false);
 
-    //   facade.init();
+    //   facade.loadConsoleList();
 
     //   list = await readFirst(facade.allConsole$);
     //   isLoaded = await readFirst(facade.loaded$);
@@ -77,24 +79,24 @@ describe('ConsoleFacade', () => {
     /**
      * Use `loadConsoleSuccess` to manually update list
      */
-    // it('allConsole$ should return the loaded list; and loaded flag == true', async () => {
-    //   let list = await readFirst(facade.allConsole$);
-    //   let isLoaded = await readFirst(facade.loaded$);
+    it('allConsole$ should return the loaded list; and loaded flag == true', async () => {
+      let list = await readFirst(facade.allConsole$);
+      let isLoaded = await readFirst(facade.loaded$);
 
-    //   expect(list.length).toBe(0);
-    //   expect(isLoaded).toBe(false);
+      expect(list.length).toBe(0);
+      expect(isLoaded).toBe(false);
 
-    //   store.dispatch(
-    //     ConsoleActions.loadConsoleSuccess({
-    //       console: [createConsoleEntity('AAA'), createConsoleEntity('BBB')],
-    //     })
-    //   );
+      store.dispatch(
+        ConsoleActions.loadConsoleListSuccess({
+          consoles: [createConsoleEntity('AAA'), createConsoleEntity('BBB')],
+        })
+      );
 
-    //   list = await readFirst(facade.allConsole$);
-    //   isLoaded = await readFirst(facade.loaded$);
+      list = await readFirst(facade.allConsole$);
+      isLoaded = await readFirst(facade.loaded$);
 
-    //   expect(list.length).toBe(2);
-    //   expect(isLoaded).toBe(true);
-    // });
+      expect(list.length).toBe(2);
+      expect(isLoaded).toBe(true);
+    });
   });
 });
