@@ -131,7 +131,11 @@ export class ManageComponent implements OnInit {
     return moment(date).format('MM/DD/YYYY');
   }
 
-  goBackBtn() {
+  goBackBtn(): void {
     this.location.back();
+  }
+
+  calcAge(): number {
+    return moment().get('y') - this.gameYearForm.controls['year'].value;
   }
 }
