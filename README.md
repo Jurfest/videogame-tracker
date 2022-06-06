@@ -1,9 +1,9 @@
 # VideogameTracker
 
-<h1 align="center">
+<!-- <h1 align="center">
   <img alt="Videogames Catalog Application" src="./src/assets/img/logo.png" width="250px"/>
     <br>
-</h1>
+</h1> -->
 
 <h4 align="center">
   Angular 13 website that helps to keep track of games 
@@ -19,8 +19,7 @@
 <p align="center">
   <a href="#computer-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installing-the-application">How to run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#page_facing_up-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#mailbox_with_mail-get-in-touch">Get in touch</a>
+  <a href="#notes-notes">Notes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 <br><br>
 
@@ -29,12 +28,13 @@
 This project was developed with the following technologies:
 
 - [Angular](https://angular.io)
-- [NgRx](https://angular.io)
-- [RxJS](https://angular.io)
+- [NgRx](https://ngrx.io)
+- [RxJS](https://rxjs.dev/guide/overview)
 - [TypeScript](https://www.typescriptlang.org)
 - [HTML](https://www.w3.org)
-- [SCSS](https://www.w3.org/Style/CSS/Overview.en.html)
-- [Nx](https://angular.io)
+- [SCSS](https://sass-lang.com/)
+- [Jest](https://jestjs.io)
+- [Nx](https://nx.dev/)
 - [json-server](https://github.com/typicode/json-server)
 
 ### Installing the Application
@@ -58,9 +58,7 @@ $ yarn start
 $ yarn run server
 ```
 
-The application will run on port 4200 and the browser will open automatically:
-
-<p>http://localhost:4200</p>
+The application will run on port 4200 and the browser will open automatically.
 
 ### Running unit tests
 
@@ -70,27 +68,16 @@ $ npx jest
 
 ```
 
-### Notes
+### :notes: Notes
 
-<p>Session Storage for user login was not implemetend.</p>
-<p>For that reason reloading the page will cause the user to be logged out</p>
-
-<!-- ### Preview -->
-
-<!-- <h1 align="center">
-    <img alt="" src="./src/assets/img/home.png" width="940px"/>
-</h1>
-<h1 align="center">
-    <img alt="" src="./src/assets/img/products.png" width="940px"/>
-</h1> -->
-
-<!-- ### :page_facing_up: License
-
-This project is under the MIT license.
-
-### :mailbox_with_mail: Get in touch!
-
-[LinkedIn](https://www.linkedin.com/in/diegojurfest/) -->
+<ul>
+  <li>
+    <p>
+    Session Storage for user login was not implemetend.
+    For that reason reloading the page will cause the user to be logged out
+    <p>
+  </li>
+</ul>
 
 ### Frontend aditional information
 
