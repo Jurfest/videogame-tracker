@@ -1,8 +1,100 @@
-
-
 # VideogameTracker
 
-This project was generated using [Nx](https://nx.dev).
+<h1 align="center">
+  <img alt="Videogames Catalog Application" src="./src/assets/img/logo.png" width="250px"/>
+    <br>
+</h1>
+
+<h4 align="center">
+  Angular 13 website that helps to keep track of games 
+</h4>
+
+<p align="center">
+<img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/Jurfest/videogame-tracker">
+<img alt="Made by Jurfest" src="https://img.shields.io/badge/made%20by-Jurfest-%20">
+<img alt="Project top programing language" src="https://img.shields.io/github/languages/top/Jurfest/videogame-tracker">
+<img alt="GitHub license" src="https://img.shields.io/github/license/Jurfest/videogame-tracker">
+</p>
+
+<p align="center">
+  <a href="#computer-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#installing-the-application">How to run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#page_facing_up-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#mailbox_with_mail-get-in-touch">Get in touch</a>
+</p>
+<br><br>
+
+### :computer: Technologies
+
+This project was developed with the following technologies:
+
+- [Angular](https://angular.io)
+- [NgRx](https://angular.io)
+- [RxJS](https://angular.io)
+- [TypeScript](https://www.typescriptlang.org)
+- [HTML](https://www.w3.org)
+- [SCSS](https://www.w3.org/Style/CSS/Overview.en.html)
+- [Nx](https://angular.io)
+- [json-server](https://github.com/typicode/json-server)
+
+### Installing the Application
+
+Clone the repository and install the dependencies.
+
+```bash
+
+#install dependencies
+$ npx yarn
+
+```
+
+### Running the application
+
+```bash
+#serve frontend
+$ yarn start
+
+#running server (json-server)
+$ yarn run server
+```
+
+The application will run on port 4200 and the browser will open automatically:
+
+<p>http://localhost:4200</p>
+
+### Running unit tests
+
+```bash
+#run jest
+$ npx jest
+
+```
+
+### Notes
+
+<p>Session Storage for user login was not implemetend.</p>
+<p>For that reason reloading the page will cause the user to be logged out</p>
+
+<!-- ### Preview -->
+
+<!-- <h1 align="center">
+    <img alt="" src="./src/assets/img/home.png" width="940px"/>
+</h1>
+<h1 align="center">
+    <img alt="" src="./src/assets/img/products.png" width="940px"/>
+</h1> -->
+
+<!-- ### :page_facing_up: License
+
+This project is under the MIT license.
+
+### :mailbox_with_mail: Get in touch!
+
+[LinkedIn](https://www.linkedin.com/in/diegojurfest/) -->
+
+### Frontend aditional information
+
+This project was generated using [Nx](https://nx.dev) and Angular 13.
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
@@ -87,11 +179,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
-
-
-
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
@@ -103,4 +190,9 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
-# videogame-tracker
+
+### Thats it ! :wave:
+
+---
+
+by Diego Jurfest :tada:
