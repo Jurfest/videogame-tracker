@@ -11,10 +11,8 @@
 
 <p align="center">
 <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/Jurfest/videogame-tracker">
-<img alt="Made by Jurfest" src="https://img.shields.io/badge/made%20by-Jurfest-%20">
+<!-- <img alt="Made by Jurfest" src="https://img.shields.io/badge/made%20by-Jurfest-%20"> -->
 <img alt="Project top programing language" src="https://img.shields.io/github/languages/top/Jurfest/videogame-tracker">
-<img alt="GitHub license" src="https://img.shields.io/github/license/Jurfest/videogame-tracker">
-</p>
 
 <p align="center">
   <a href="#computer-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
