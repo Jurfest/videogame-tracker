@@ -26,13 +26,16 @@ export class GameDataService {
     });
   }
 
-  loadGames(title: string): Observable<Game[]> {
+  loadGames(searchParam: string): Observable<Game[]> {
     const params = new HttpParams().set('_sort', 'year').set('_order', 'desc');
 
     return this.http.get<Game[]>(baseUrl, { params }).pipe(
       map((res) =>
-        res.filter((game) =>
-          game.title.toLowerCase().includes(title.toLowerCase())
+        res.filter(
+          (game) =>
+            game.title.toLowerCase().includes(searchParam.toLowerCase()) ||
+            game.year.includes(searchParam) ||
+            game.dateOfCompletion.includes(searchParam)
         )
       ),
       map((filteredGames) => this.sortCardsDesc(filteredGames)),
