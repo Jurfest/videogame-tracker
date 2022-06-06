@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { SharedUiComponentsModule } from '@videogame-tracker/shared/ui-components';
+import { AuthGuard } from '@videogame-tracker/shared/util-auth';
 import { VideogameTrackerDomainModule } from '@videogame-tracker/videogame-tracker/domain';
 
 import { SearchComponent } from './search.component';
@@ -40,7 +41,19 @@ import { SearchComponent } from './search.component';
     RouterModule.forChild([
       {
         path: '',
-        component: SearchComponent,
+        canActivate: [AuthGuard],
+
+        children: [
+          {
+            path: '',
+            redirectTo: 'games-catalog',
+            pathMatch: 'full',
+          },
+          {
+            path: 'games-catalog',
+            component: SearchComponent,
+          },
+        ],
       },
     ]),
   ],

@@ -7,11 +7,11 @@ export const APP_ROUTES: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/games-catalog',
+        redirectTo: 'main',
         pathMatch: 'full',
       },
       {
-        path: 'games-catalog',
+        path: 'main',
         loadChildren: () =>
           import('@videogame-tracker/videogame-tracker/feature-search').then(
             (m) => m.VideogameTrackerFeatureSearchModule
@@ -36,7 +36,7 @@ export const APP_ROUTES: Routes = [
       // TODO: - Create a page for wrong routes
       {
         path: '**',
-        redirectTo: '/games-catalog',
+        redirectTo: 'main',
       },
     ],
   },
